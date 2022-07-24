@@ -1,0 +1,6 @@
+# OS-specific
+.DS_Store
+
+# swap files
+*.swp
+*.swo
