@@ -31,6 +31,12 @@ local M = {
    },
 
    -- Default
+   Normal = {
+      bg = 'none',
+   },
+   Comment = {
+      fg = '#646973',
+   },
    FloatBorder = { fg = 'blue' },
    NormalFloat = { bg = 'lightbg' },
 
