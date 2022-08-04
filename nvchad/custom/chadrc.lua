@@ -11,7 +11,7 @@ M.plugins = {
 M.ui = {
    hl_override = require "custom.highlights.hl_override",
    hl_add = require "custom.highlights.hl_add",
-   theme = "tokyonight",
+   theme = "tokyodark",
    theme_toggle = { "gruvchad", "gruvbox_light" },
 }
 
