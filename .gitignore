@@ -4,3 +4,11 @@
 # swap files
 *.swp
 *.swo
+
+# tmux
+tmux/error-logs.txt
+tmux/plugins
+
+# zsh
+zsh/archives
+zsh/shortcuts.zsh
