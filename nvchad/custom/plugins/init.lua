@@ -80,9 +80,25 @@ return {
 
    ["sindrets/winshift.nvim"] = {
       module = "winshift",
-      event = 'InsertEnter',
+      keys = { "<C-w>" },
       setup = function()
          require("custom.plugins.winshift").setup()
       end,
-   }
+   },
+
+   ["folke/todo-comments.nvim"] = {
+      module = "todo-comments",
+      event = 'InsertEnter',
+      config = function()
+         require("custom.plugins.todo-comments").setup()
+      end,
+   },
+
+   ["kevinhwang91/nvim-fFHighlight"] = {
+      module = "ff-highlight",
+      keys = {{'n', 'f'}, {'x', 'f'}, {'n', 'F'}, {'x', 'F'}},
+      config = function()
+         require("custom.plugins.ff-highlight").setup()
+      end,
+   },
 }

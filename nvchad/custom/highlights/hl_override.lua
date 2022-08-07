@@ -31,9 +31,9 @@ local M = {
    },
 
    -- Default
-   Normal = {
-      bg = 'none',
-   },
+   -- Normal = {
+   --    bg = 'none',
+   -- },
    Comment = {
       fg = '#646973',
    },
