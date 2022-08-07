@@ -17,6 +17,12 @@ for _, lsp in ipairs(servers) do
          settings = {
             python = {
                analysis = {
+                  diagnosticSeverityOverrides = {
+                    reportUnboundVariable = 'none',
+                    reportOptionalIterable = 'none',
+                    reportOptionalSubscript = 'none',
+                    reportGeneralTypeIssues = 'none',
+                  },
                   authSearchPath = true,
                   diagnosticMode = "workspace",
                   useLibraryCodeForTypes = true,
@@ -31,7 +37,7 @@ for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
          on_attach = on_attach,
          capabilities = capabilities,
+         root_dir = vim.loop.cwd,
       }
    end
-
 end
