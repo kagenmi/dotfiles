@@ -22,14 +22,15 @@ source "$ZSH_CONFIG_HOME/powerlevel10k/init.zsh"
 # Custom Configuration
 # --------------------
 
-if [[ -f $ZSH_CONFIG_HOME/shortcuts.zsh ]]; then
-  source $ZSH_CONFIG_HOME/shortcuts.zsh
-fi
 source "$ZSH_CONFIG_HOME/utils.zsh"
 
 source "$ZSH_CONFIG_HOME/core/general.zsh"
 source "$ZSH_CONFIG_HOME/core/color.zsh"
 source "$ZSH_CONFIG_HOME/core/tmux.zsh"
+
+if [[ -f $ZSH_CONFIG_HOME/shortcuts.zsh ]]; then
+  source $ZSH_CONFIG_HOME/shortcuts.zsh
+fi
 
 # if (which zprof > /dev/null 2>&1) ;then
 #   zprof
