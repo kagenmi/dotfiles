@@ -1,5 +1,9 @@
 is-wsl() {
-  grep -q microsoft /proc/version
+  if [[ -f /proc/version ]]; then
+    grep -q microsoft /proc/version
+  else
+    false
+  fi
 }
 
 is-mac() {
