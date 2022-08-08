@@ -12,3 +12,4 @@ tmux/plugins
 # zsh
 zsh/archives
 zsh/shortcuts.zsh
+zsh/custom
