@@ -4,11 +4,15 @@
 
 if is-mac; then
   alias dircolors='gdircolors'
-  alias ls='gls'
 fi
 
 export LS_COLORS="$(vivid generate tokyo-night)"
 
-alias ls='ls --color=auto'
+if is-mac; then
+  alias ls='gls --color=auto'
+else
+  alias ls='ls --color=auto'
+fi
+
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
