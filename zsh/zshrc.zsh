@@ -28,6 +28,10 @@ source "$ZSH_CONFIG_HOME/core/general.zsh"
 source "$ZSH_CONFIG_HOME/core/color.zsh"
 source "$ZSH_CONFIG_HOME/core/tmux.zsh"
 
+if [[ -f $ZSH_CONFIG_HOME/custom/init.zsh ]]; then
+  source $ZSH_CONFIG_HOME/custom/init.zsh
+fi
+
 if [[ -f $ZSH_CONFIG_HOME/shortcuts.zsh ]]; then
   source $ZSH_CONFIG_HOME/shortcuts.zsh
 fi
