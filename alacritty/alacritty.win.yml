@@ -5,8 +5,7 @@ window:
   padding:
     x: 0
     y: 0
-  decorations: buttonless
-  # opacity: 0.9
+  decorations: full
 
 mouse:
   hide_when_typing: true
@@ -29,7 +28,7 @@ font:
   # use_thin_strokes: false
 
 shell:
-    program: /bin/zsh
+    program: wsl
 
 alt_send_esc: false
 
