@@ -11,8 +11,9 @@ M.plugins = {
 M.ui = {
    hl_override = require "custom.highlights.hl_override",
    hl_add = require "custom.highlights.hl_add",
-   theme = "tokyodark",
+   theme = "tokyonight",
    theme_toggle = { "gruvchad", "gruvbox_light" },
+   changed_themes = require "custom.highlights.theme_override",
 }
 
 M.mappings = require "custom.mappings"

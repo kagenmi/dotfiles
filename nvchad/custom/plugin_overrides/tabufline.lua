@@ -6,6 +6,7 @@ local config = {
       end,
    },
    tabufline = {
+      lazyload = false,
       overriden_modules = function()
          return require('custom.modules.tabufline')
       end,
