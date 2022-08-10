@@ -1,5 +1,6 @@
 local plugin = "kyazdani42/nvim-tree.lua"
 local config = {
+   sync_root_with_cwd = true,
    git = {
       enable = true,
    },
@@ -18,6 +19,7 @@ local config = {
       update_root = false,
    },
    view = {
+      adaptive_size = false,
       hide_root_folder = false,
       preserve_window_proportions = false, -- If false, the size of windows will be equalized.
       -- :help nvim-tree-mappings[-default]

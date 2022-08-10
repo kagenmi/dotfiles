@@ -34,11 +34,30 @@ local M = {
    -- Normal = {
    --    bg = 'none',
    -- },
-   Comment = {
-      fg = '#646973',
-   },
+   -- Comment = {
+   --    fg = '#646973',
+   -- },
    FloatBorder = { fg = 'blue' },
    NormalFloat = { bg = 'lightbg' },
+
+   -- bufferline
+  TbLineBufOn = {
+    fg = 'white',
+    bg = 'one_bg3',
+    bold = true,
+  },
+  TbLineBufOff = {
+    fg = 'grey_fg',
+    bg = 'black',
+  },
+  TbLineBufOnClose = {
+    fg = 'red',
+    bg = 'one_bg3',
+  },
+  TbLineBufOffClose = {
+    fg = 'grey_fg',
+    bg = 'black',
+  },
 
    -- nvim-tree
    NvimTreeWinSeparator = { fg = 'line', bg = 'darker_black', },

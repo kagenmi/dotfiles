@@ -75,6 +75,13 @@ M.comment = {
    },
 }
 
+M.tabufline = {
+   n = {
+      ["<TAB>"] = { "<cmd> tabprevious <CR>", "  goto next tab" },
+      ["<S-TAB>"] = { "<cmd> tabnext <CR> ", "  goto prev tab" }
+   }
+}
+
 M.nvimtree = {
    n = {
       ["<leader>e"] = {},
