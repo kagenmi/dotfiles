@@ -15,8 +15,7 @@ local config = {
       },
    },
    update_focused_file = {
-      enable = true,
-      update_root = false,
+      enable = false, -- Prevent from expanding directory when forcing the file
    },
    view = {
       adaptive_size = false,
