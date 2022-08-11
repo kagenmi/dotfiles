@@ -52,9 +52,10 @@ show-colors() {
 
 alias ccat='highlight -O ansi --force'
 alias vim='nvim'
-alias editalacritty='vim ~/.config/alacritty/alacritty.yml'
-alias edittmux='vim ~/.config/tmux/tmux.conf'
-alias editrc='vim ~/.zshrc'
+alias editalacritty="vim ~/.config/alacritty/alacritty.yml"
+alias edittmux="vim $HOME/.config/tmux/tmux.conf"
+alias editrc="vim $ZSH_CONF_HOME/zshrc.zsh"
+alias clear-nvim-cache="rm -rf $HOME/.local/share/nvim/swap"
 
 if type trash-put &> /dev/null; then
   alias rm=trash-put
