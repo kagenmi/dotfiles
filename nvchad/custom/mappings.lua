@@ -68,8 +68,8 @@ M.comment = {
 
 M.tabufline = {
    n = {
-      ["<TAB>"] = { "<cmd> tabprevious <CR>", "goto next tab" },
-      ["<S-TAB>"] = { "<cmd> tabnext <CR> ", " goto prev tab" }
+      ["<TAB>"] = { "<cmd> tabnext <CR>", "goto next tab" },
+      ["<S-TAB>"] = { "<cmd> tabprevious <CR> ", " goto previous tab" }
    }
 }
 
