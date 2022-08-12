@@ -3,6 +3,10 @@ local M = {}
 M.general = {
    n = {
       ['<leader>cc'] = { "<cmd> bufdo q <CR>", "close all buffers" },
+
+       -- split window
+       ['<leader>x'] = { ":split<CR>", "split window horizontally" },
+       ['<leader>v'] = { ":vsplit<CR>", "split window vertically" },
    },
    v = {
       ['<'] = { "<gv", "Indent backward" },
