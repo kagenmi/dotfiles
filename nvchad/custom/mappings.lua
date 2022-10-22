@@ -42,13 +42,13 @@ M.shade = {
 
 M.tabufline = {
    n = {
-      ["<S-b>"] = "",
+      ["<S-b>"] = { "", "" },
    },
 }
 
 M.comment = {
    n = {
-      ["<leader>/"] = "",
+      ["<leader>/"] = { "", "" },
       ["<C-_>"] = {
          function()
             require("Comment.api").toggle_current_linewise()
@@ -58,7 +58,7 @@ M.comment = {
       },
    },
    v = {
-      ["<leader>/"] = "",
+      ["<leader>/"] = { "", "" },
       ["<C-_>"] = {
          "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
          "toggle comment",
@@ -75,7 +75,7 @@ M.tabufline = {
 
 M.nvimtree = {
    n = {
-      ["<leader>e"] = {},
+      ["<leader>e"] = { "", "" },
    }
 }
 
