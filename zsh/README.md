@@ -20,3 +20,7 @@ source "$ZSH_CONFIG_HOME/zshrc.zsh"
 # PATH=$HOME/.homebrew/bin:$PATH
 # HOMEBREW_CACHE=$HOME/.homebrew/cache
 ```
+
+### Install Dependencies for `pyenv`
+
+Refer to [this guide](https://github.com/pyenv/pyenv/wiki#suggested-build-environment).
