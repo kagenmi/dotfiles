@@ -14,11 +14,12 @@ Creaet `~/.zshrc` with the following contents:
 ```shell
 export ZSH_CONFIG_HOME=$HOME/.config/zsh
 
-source "$ZSH_CONFIG_HOME/zshrc.zsh"
-
-# e.g.
+# Your PATHs
+# e.g.:
 # PATH=$HOME/.homebrew/bin:$PATH
 # HOMEBREW_CACHE=$HOME/.homebrew/cache
+
+source "$ZSH_CONFIG_HOME/zshrc.zsh"
 ```
 
 ### Install Dependencies for `pyenv`
