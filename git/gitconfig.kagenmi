@@ -1,0 +1,9 @@
+[user]
+email = 109903144+kagenmi@users.noreply.github.com 
+name = kagenmi
+
+[github]
+user= "kagenmi"
+
+[core]
+sshCommand = "ssh -i ~/.ssh/ed25519_kagenmi"

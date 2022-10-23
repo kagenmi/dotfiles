@@ -1,0 +1,11 @@
+[includeIf "gitdir:~/Developments/kagenmi/"]
+path = ~/.config/git/gitconfig.kagenmi
+
+# default configures:
+
+# [user]
+# email = daniel@example.com
+# user = daniel
+#
+# [core]
+# sshCommand = "ssh -i ~/.ssh/ed25519_work"
