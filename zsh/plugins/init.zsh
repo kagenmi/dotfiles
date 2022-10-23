@@ -9,7 +9,7 @@ colors
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
 export NVM_AUTO_LOAD=true
-export NVM_COMPLETION=true
+export NVM_COMPLETION=false
 
 zinit depth'1' light-mode for \
     romkatv/powerlevel10k
