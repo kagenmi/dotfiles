@@ -8,7 +8,7 @@
 
 ```shell
 brew tap homebrew/cask-fonts
-brew install --cask font-firecode-nerd-font
+brew install --cask font-fira-code-nerd-font
 ```
 
 #### Linux
