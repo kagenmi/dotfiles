@@ -3,11 +3,18 @@ ZSH Config
 
 ## Setup
 
-### Symbolic link
+### 0. Change the shell to ZSH
+
+If your current shell is not ZSH, execute below.
+```shell
+chsh -s /bin/zsh
+```
+
+### 1. Symbolic link
 
 Create Symbolic link to `~/.config/zsh`
 
-### Create `~/.zshrc`
+### 2. Create `~/.zshrc`
 
 Creaet `~/.zshrc` with the following contents:
 
