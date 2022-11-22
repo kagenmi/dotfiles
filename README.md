@@ -7,7 +7,7 @@ Configs for me.
 
 Install following packages.
 - `vivid`
-- Dependencies for `pyenv` (see [pyenv Config](./pyenv/README.md))
+- Dependencies for `pyenv` (see [pyenv wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment))
 - `coreutils` (only MacOS)
 
 ## Homebrew Setup (only MacOS)
