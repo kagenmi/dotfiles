@@ -23,6 +23,7 @@ zinit wait lucid light-mode for \
     'OMZP::git' \
   atload'zicompinit; zicdreplay' \
     'lukechilds/zsh-nvm' \
+    'unixorn/zsh-gvm' \
     https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh \
   atinit'zicompinit; zicdreplay' \
     'zdharma-continuum/fast-syntax-highlighting' \
