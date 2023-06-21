@@ -15,6 +15,13 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+   pattern = "go",
+   callback = function()
+      opt.shiftwidth = 4
+   end,
+})
+
+autocmd("FileType", {
    pattern = "lua",
    callback = function()
       opt.shiftwidth = 3
