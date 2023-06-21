@@ -7,6 +7,8 @@ M.general = {
        -- split window
        ['<leader>x'] = { ":split<CR>", "split window horizontally" },
        ['<leader>v'] = { ":vsplit<CR>", "split window vertically" },
+
+       ['<S-b>'] = { "<S-b>", "" },
    },
    v = {
       ['<'] = { "<gv", "Indent backward" },
@@ -41,9 +43,6 @@ M.shade = {
 }
 
 M.tabufline = {
-   n = {
-      ["<S-b>"] = { "", "" },
-   },
 }
 
 M.comment = {
