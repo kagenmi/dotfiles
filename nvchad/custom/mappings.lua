@@ -1,104 +1,64 @@
+---@type MappingsTable
 local M = {}
 
 M.general = {
-   n = {
-      ['<leader>cc'] = { "<cmd> bufdo q <CR>", "close all buffers" },
+  n = {
+    [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
-       -- split window
-       ['<leader>x'] = { ":split<CR>", "split window horizontally" },
-       ['<leader>v'] = { ":vsplit<CR>", "split window vertically" },
+    -- split window
+    ['<leader>x'] = { ":split<CR>", "split window horizontally" },
+    ['<leader>v'] = { ":vsplit<CR>", "split window vertically" },
 
-       ['<S-b>'] = { "<S-b>", "" },
-   },
-   v = {
-      ['<'] = { "<gv", "Indent backward" },
-      ['>'] = { ">gv", "Indent forward" },
-   },
-}
-
-M.truzen = {
-   n = {
-      ["<leader>ta"] = { "<cmd> TZAtaraxis <CR>", "truzen ataraxis" },
-      ["<leader>tm"] = { "<cmd> TZMinimalist <CR>", "truzen minimal" },
-      ["<leader>tf"] = { "<cmd> TZFocus <CR>", "truzen focus" },
-   },
-}
-
-M.treesitter = {
-   n = {
-      ["<leader>cu"] = { "<cmd> TSCaptureUnderCursor <CR>", "find media" },
-   },
-}
-
-M.shade = {
-   n = {
-      ["<leader>s"] = {
-         function()
-            require("shade").toggle()
-         end,
-
-         "toggle shade.nvim",
-      },
-   },
-}
-
-M.tabufline = {
-}
-
-M.comment = {
-   n = {
-      ["<leader>/"] = { "", "" },
-      ["<C-_>"] = {
-         function()
-            require("Comment.api").toggle_current_linewise()
-         end,
-
-         "toggle comment",
-      },
-   },
-   v = {
-      ["<leader>/"] = { "", "" },
-      ["<C-_>"] = {
-         "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
-         "toggle comment",
-      },
-   },
-}
-
-M.tabufline = {
-   n = {
-      ["<TAB>"] = { "<cmd> tabnext <CR>", "goto next tab" },
-      ["<S-TAB>"] = { "<cmd> tabprevious <CR> ", " goto previous tab" }
-   }
-}
-
-M.nvimtree = {
-   n = {
-      ["<leader>e"] = { "", "" },
-   }
-}
-
-M.quickrun = {
-   n = {
-      ["<leader>qr"] = {
-         ":QuickRun<CR>",
-         "Quick Run",
-      },
-   },
+    -- for surround.vim
+    ["<S-b>"] = { "<S-b>", "" },
+  },
+  v = {
+    [">"] = { ">gv", "indent"},
+  },
 }
 
 M.winshift = {
-   n = {
-      ["<C-w>m"] = {
-         ":WinShift<CR>",
-         "Enter Win-Move mode",
-      },
-      ["<C-w>x"] = {
-         ":WinShift swap<CR>",
-         "Swap windows",
-      },
-   },
+  n = {
+    ["<C-w>m"] = {
+      ":WinShift<CR>",
+      "Enter Win-Move move",
+    },
+    ["<C-w>x"] = {
+      ":WinShift swap<CR>",
+      "Swap windows",
+    },
+  },
 }
 
+M.comment = {
+  n = {
+    ["<leader>/"] = { "", "" },
+    ["<C-_>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "toggle comment",
+    }
+  },
+  v = {
+    ["<leader>/"] = { "", "" },
+    ["<C-_>"] = {
+      function()
+        require("Comment.api").toggle.linewise(vim.fn.visualmode())
+      end,
+      "toggle comment",
+    }
+  }
+}
+
+M.tabufline = {
+  n = {
+    ["<leader>k"] = { "<cmd>tabnext<cr>", "Next tab" },
+    ["<leader>j"] = { "<cmd>tabprevious<cr>", "Previous tab" },
+  },
+}
+
+
+-- more keybinds!
 
 return M
