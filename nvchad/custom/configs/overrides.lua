@@ -56,6 +56,9 @@ M.nvimtree = {
       },
     },
   },
+  update_focused_file = {
+    enable = false,
+  },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
 
