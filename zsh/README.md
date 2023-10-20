@@ -7,6 +7,9 @@ ZSH Config
 
 If your current shell is not ZSH, execute below.
 ```shell
+# [Amazon Linux only] install chsh
+sudo yum -y install util-linux-user
+
 chsh -s /bin/zsh
 ```
 
