@@ -53,8 +53,24 @@ M.comment = {
 
 M.tabufline = {
   n = {
-    ["<leader>k"] = { "<cmd>tabnext<cr>", "Next tab" },
-    ["<leader>j"] = { "<cmd>tabprevious<cr>", "Previous tab" },
+    -- cycle through tabs
+    ["<tab>"] = { "<cmd>tabnext<cr>", "Next tab" },
+    ["<S-tab>"] = { "<cmd>tabprevious<cr>", "Previous tab" },
+
+    -- cycle through buffers
+    ["<leader>k"] = {
+      function()
+        require("nvchad.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+
+    ["<leader>j"] = {
+      function()
+        require("nvchad.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
+    },
   },
 }
 
