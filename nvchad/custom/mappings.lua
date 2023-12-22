@@ -3,8 +3,6 @@ local M = {}
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-
     -- split window
     ['<leader>x'] = { ":split<CR>", "split window horizontally" },
     ['<leader>v'] = { ":vsplit<CR>", "split window vertically" },
