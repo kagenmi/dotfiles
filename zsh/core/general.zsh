@@ -62,3 +62,9 @@ if type trash-put &> /dev/null; then
 else
   echo "WARNING: trash-cli isn't installed."
 fi
+
+if is-wsl; then
+  alias open='explorer.exe'
+  alias pbcopy='clip.exe'
+  alias pbpaste='powershell.exe -command "Get-Clipboard"'
+fi
