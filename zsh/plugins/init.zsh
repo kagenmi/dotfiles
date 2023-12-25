@@ -27,6 +27,4 @@ zinit wait lucid light-mode for \
     https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh \
   atinit'zicompinit; zicdreplay' \
     'zdharma-continuum/fast-syntax-highlighting' \
-    'OMZP::colored-man-pages' \
-  as'completion' \
-    OMZP::docker/_docker
+    'OMZP::colored-man-pages'
