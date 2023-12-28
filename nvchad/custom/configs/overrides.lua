@@ -59,6 +59,9 @@ M.nvimtree = {
   update_focused_file = {
     enable = false,
   },
+  view = {
+    preserve_window_proportions = false,
+  },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
 
