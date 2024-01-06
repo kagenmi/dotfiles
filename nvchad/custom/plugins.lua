@@ -57,8 +57,11 @@ local plugins = {
   },
 
   {
-    "tpope/vim-surround",
-    lazy = false,
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
   },
 
   -- To make a plugin not be loaded
