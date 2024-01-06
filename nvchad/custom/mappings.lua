@@ -69,9 +69,21 @@ M.tabufline = {
       end,
       "Goto prev buffer",
     },
+
+    ["tx"] = {
+      function()
+        require("nvchad.tabufline").close_buffer()
+      end,
+      "Close buffer",
+    },
   },
 }
 
+M.nvimtree = {
+  n = {
+    ["<leader>e"] = { "", "" }
+  }
+}
 
 -- more keybinds!
 

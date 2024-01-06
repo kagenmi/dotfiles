@@ -14,7 +14,7 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  ExtraWhitespace = { bg = "red" },
+  -- ExtraWhitespace = { bg = "red" },
 
   -- bufferline
   TbLineBufOn = { fg = 'white', bg = 'one_bg3', bold = true },
