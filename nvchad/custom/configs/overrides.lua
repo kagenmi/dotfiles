@@ -79,6 +79,10 @@ M.nvimtree = {
     -- Modify file
     vim.keymap.set('n', 'y', api.fs.copy.node, opts('Copy'))
   end,
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
 }
 
 return M
