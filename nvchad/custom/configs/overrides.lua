@@ -12,7 +12,8 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
-    "python"
+    "python",
+    "terraform",
   },
   indent = {
     enable = true,
