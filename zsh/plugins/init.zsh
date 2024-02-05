@@ -19,6 +19,7 @@ zinit wait lucid light-mode for \
     'zsh-users/zsh-autosuggestions' \
     'OMZL::git.zsh' \
     'mattberther/zsh-pyenv' \
+    'cda0/zsh-tfenv' \
   atload"unalias grv" \
     'OMZP::git' \
   atload'zicompinit; zicdreplay' \
