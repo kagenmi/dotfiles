@@ -42,7 +42,7 @@ M.comment = {
     ["<leader>/"] = { "", "" },
     ["<C-_>"] = {
       function()
-        require("Comment.api").toggle.linewise(vim.fn.visualmode())
+        require("Comment.api").toggle.linewise('v')
       end,
       "toggle comment",
     }
