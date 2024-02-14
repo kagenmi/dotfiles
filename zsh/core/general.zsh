@@ -19,6 +19,14 @@ if is-wsl; then
   export DISPLAY=$LOCAL_IP:0
 fi
 
+# Configure
+# ---------
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # Utils
 # -----
 
@@ -46,6 +54,11 @@ show-colors() {
     print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
   done
 }
+
+pip-uninstall-all() {
+  pip freeze | xargs pip uninstall -y
+}
+
 
 # Aliases
 # -------
