@@ -7,7 +7,7 @@ local lsputil = require "lspconfig/util"
 local utils = require "custom.utils"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "pyright", "terraformls", "tailwindcss" }
+local servers = { "html", "cssls", "clangd", "gopls", "terraformls", "tailwindcss" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -38,4 +38,15 @@ lspconfig.pyright.setup {
   on_init = function(client)
     client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
   end,
+}
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    hostInfo = 'neovim',
+    preferences = {
+      quotePreference = 'single',
+    }
+  }
 }
