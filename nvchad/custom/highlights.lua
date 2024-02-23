@@ -26,7 +26,13 @@ M.changed_themes = {
       -- default is too dark
       grey_fg = '#8b93b6',
     }
-  }
+  },
+  onenord = {
+    base_30 = {
+      -- default is too dark
+      grey_fg = '#676f7e',
+    }
+  },
 }
 
 return M
