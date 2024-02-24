@@ -3,20 +3,9 @@
 
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
 if is-wsl; then
-  # # cmd.exe /c $win/Documents/find-ip.bat
-  # export DISPLAY=$WSL_IF_IP:0
-  # unset LIBGL_ALWAYS_INDIRECT
-  LOCAL_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-  # LOCAL_IP=$(ipconfig.exe | awk 'BEGIN {RS="\r\n"} /^[A-Z]/ {isWslSection=/WSL/;}; {if (!isWslSelection && /IPv4 Address/) {printf $NF; exit;}}')
-  export DISPLAY=$LOCAL_IP:0
+  # LOCAL_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+  export DISPLAY=":0"
 fi
 
 # Configure
@@ -53,6 +42,10 @@ show-colors() {
   for i in {0..255}; do
     print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
   done
+}
+
+check-truecolor() {
+  curl -s https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh | bash
 }
 
 pip-uninstall-all() {
