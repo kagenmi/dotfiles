@@ -30,7 +30,7 @@ M.changed_themes = {
   onenord = {
     base_30 = {
       -- default is too dark
-      grey_fg = '#676f7e',
+      grey_fg = '#737c8c',
     }
   },
 }
