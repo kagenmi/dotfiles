@@ -74,3 +74,11 @@ if is-wsl; then
   alias pbcopy='clip.exe'
   alias pbpaste='powershell.exe -command "Get-Clipboard"'
 fi
+
+# Plugins
+# -------
+
+# z
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
