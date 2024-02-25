@@ -12,7 +12,12 @@ source "$WORKDIR/component.sh"
 
 main() {
   source "$WORKDIR/colorscheme.sh"
-  
+
+  # pane
+  setw pane-border-status "off"
+  setw pane-border-style "fg=${thm_gray}"
+  setw pane-active-border-style "fg=${thm_cyan}"
+
   # status
   set status "on"
   set status-bg "$thm_bg"
