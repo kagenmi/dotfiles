@@ -6,19 +6,31 @@ local plugins = {
   -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require "custom.configs.conform"
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+
+    dependencies = {
+      {
+        "jcdickinson/codeium.nvim",
+        config = function()
+          require("codeium").setup {}
+        end,
+      }
+    }
   },
 
   -- override plugin configs
@@ -46,6 +58,14 @@ local plugins = {
     end,
   },
 
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
   -- },
   --  "fedepujol/bracketpair.nvim",
   --  event = "InsertEnter",
@@ -62,6 +82,15 @@ local plugins = {
     config = function()
       require("nvim-surround").setup({})
     end
+  },
+
+  -- pretty diagnostics panel
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    config = function()
+      require("trouble").setup()
+    end,
   },
 
   -- To make a plugin not be loaded

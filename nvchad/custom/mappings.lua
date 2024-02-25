@@ -41,9 +41,7 @@ M.comment = {
   v = {
     ["<leader>/"] = { "", "" },
     ["<C-_>"] = {
-      function()
-        require("Comment.api").toggle.linewise('v')
-      end,
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "toggle comment",
     }
   }
