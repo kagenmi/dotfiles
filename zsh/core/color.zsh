@@ -8,7 +8,7 @@ fi
 
 local theme='nord'
 if [[ -f "$ZSH_CONFIG_HOME/core/dircolors/$theme" ]]; then
-  eval $(dircolors "$ZSH_CONFIG_HOME/core/dircolors/theme")
+  eval $(dircolors "$ZSH_CONFIG_HOME/core/dircolors/$theme")
 fi
 
 if is-mac; then
