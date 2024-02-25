@@ -93,6 +93,19 @@ local plugins = {
     end,
   },
 
+  {
+    "Vonr/align.nvim",
+    branch = "v2",
+    lazy = true,
+  }
+
+  -- general-purpose motion plugin
+  -- {
+  --   "ggandor/leap.nvim",
+  --   keys = "s",
+  -- }
+
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
