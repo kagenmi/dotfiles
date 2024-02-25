@@ -23,6 +23,21 @@ M.treesitter = {
   },
 }
 
+M.cmp = {
+  sources = {
+    -- trigger_characters is for unocss lsp
+    { name = "nvim_lsp", trigger_characters = { "-" } },
+    { name = "path" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "codeium" },
+    { name = "nvim_lua" },
+  },
+  experimental = {
+    ghost_text = true,
+  },
+}
+
 M.mason = {
   ensure_installed = {
     -- lua stuff
@@ -35,10 +50,12 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "tailwindcss-language-server",
+    "gopls",
+    "pyright",
 
     -- c/cpp stuff
-    "clangd",
-    "clang-format",
+    "terraform-ls",
   },
 }
 
