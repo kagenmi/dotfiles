@@ -10,7 +10,6 @@ Configs for me.
 Install following packages.
 - `tmux` (1.9+)
 - `neovim` (0.8.0+)
-- `vivid`
 - Dependencies for `pyenv` (see [pyenv wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment))
 - `coreutils` (only MacOS)
 - `trash-cli` (by `pip`)

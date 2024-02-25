@@ -6,7 +6,10 @@ if is-mac; then
   alias dircolors='gdircolors'
 fi
 
-export LS_COLORS="$(vivid generate tokyo-night)"
+local theme='nord'
+if [[ -f "$ZSH_CONFIG_HOME/core/dircolors/$theme" ]]; then
+  eval $(dircolors "$ZSH_CONFIG_HOME/core/dircolors/theme")
+fi
 
 if is-mac; then
   alias ls='gls --color=auto'
