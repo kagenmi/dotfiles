@@ -9,9 +9,9 @@
 ### Generate SSH keys
 
 ```shell
-shh-keygen \
+ssh-keygen \
   -t ed25519 \
-  -C "your_personal_email@example.com" \
+  -C "109903144+kagenmi@users.noreply.github.com" \
   -f ~/.ssh/<personal_key>
 ```
 
