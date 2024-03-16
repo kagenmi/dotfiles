@@ -12,7 +12,7 @@
 ssh-keygen \
   -t ed25519 \
   -C "109903144+kagenmi@users.noreply.github.com" \
-  -f ~/.ssh/<personal_key>
+  -f ~/.ssh/ed25519_kagenmi
 ```
 
 ### Create a SSH Config
