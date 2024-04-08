@@ -81,6 +81,10 @@ M.nvimtree = {
   view = {
     preserve_window_proportions = false,
   },
+  filters = {
+    git_ignored = false,
+    custom = { "__pycache__" },
+  },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
 
