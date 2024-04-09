@@ -83,7 +83,7 @@ M.nvimtree = {
   },
   filters = {
     git_ignored = false,
-    custom = { "__pycache__" },
+    custom = { ".git", "venv", ".venv", "__pycache__" },
   },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
