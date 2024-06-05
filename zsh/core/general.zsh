@@ -32,9 +32,9 @@ json-beauty() {
 #   `findwd hoge js`
 findwd(){
   if [ -z "$2" ]; then
-    grep -rn "$1" --color='auto' .
+    grep -Irn "$1" --color='auto' .
   else
-    grep -rn "$1" --include="*.$2" --color='auto' .
+    grep -Irn "$1" --include="*.$2" --color='auto' .
   fi
 }
 
