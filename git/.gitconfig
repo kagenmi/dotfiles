@@ -1,11 +1,18 @@
-[includeIf "gitdir:~/Developments/kagenmi/"]
-path = ~/.config/git/gitconfig.kagenmi
+[user]
+  name = default-user
+  email = default-user@example.com
+[pull]
+  rebase = false
+  ff = only
+[core]
+  ignorecase = false
+  pager = less -F -X
+  editor = vim
+  sshCommand = "ssh -i ~/.ssh/ed25519_default"
+[merge]
+  ff = false
+[push]
+  autoSetupRemote = true
 
-# default configures:
-
-# [user]
-# email = daniel@example.com
-# user = daniel
-#
-# [core]
-# sshCommand = "ssh -i ~/.ssh/ed25519_work"
+[includeIf "gitdir:~/Development/kagenmi/"]
+  path = ~/.config/git/gitconfig.kagenmi
