@@ -14,6 +14,12 @@ M.hl_add = {
 
   -- bufferline
   TbLineBufOn = { fg = 'white', bg = 'one_bg3', bold = true },
+
+  -- flash
+  Flashbackdrop = { bold = true },
+  FlashMatch = { fg = 'black', bg = 'white' },
+  FlashCurrent = { fg = 'black', bg = 'purple' },
+  FlashLabel = { fg = 'black', bg = '#FF75A0', bold = true },
 }
 
 M.changed_themes = {

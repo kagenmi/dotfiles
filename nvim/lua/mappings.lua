@@ -35,6 +35,7 @@ map("n", "<S-TAB>", "<CMD>tabprevious<CR>", { desc = "Previous tab" })
 map("n", "<LEADER>k", tabufline.next, { desc = "Next buffer" })
 map("n", "<LEADER>j", tabufline.prev, { desc = "Previous buffer" })
 map("n", "tx", tabufline.close_buffer, { desc = "Close buffer" })
+map("n", "<LEADER>tt", function() require("base46").toggle_theme() end, { desc = "Toggle Base46 Theme" })
 
 -- nvimtree
 -- --------
