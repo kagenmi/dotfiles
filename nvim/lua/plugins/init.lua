@@ -1,27 +1,62 @@
-local overrides = require("custom.configs.overrides")
+local misc = require("configs.misc")
 
----@type NvPluginSpec[]
-local plugins = {
+return {
+  {
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    config = function()
+      require "configs.conform"
+    end,
+  },
 
-  -- Override plugin definition options
+  -- These are some examples, uncomment them if you want to see them work!
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     require("nvchad.configs.lspconfig").defaults()
+  --     require "configs.lspconfig"
+  --   end,
+  -- },
+  --
+  -- {
+  -- 	"williamboman/mason.nvim",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"lua-language-server", "stylua",
+  -- 			"html-lsp", "css-lsp" , "prettier"
+  -- 		},
+  -- 	},
+  -- },
+  --
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
+
+    -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
 
   {
     "stevearc/conform.nvim",
     config = function()
-      require "custom.configs.conform"
+      require "configs.conform"
     end,
   },
 
   {
     "hrsh7th/nvim-cmp",
-    opts = overrides.cmp,
+    opts = misc.cmp,
 
     dependencies = {
       {
@@ -36,17 +71,17 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = misc.mason
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    opts = misc.treesitter,
   },
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    opts = require("configs.nvimtree"),
   },
 
   -- Install a plugin
@@ -138,5 +173,3 @@ local plugins = {
   --   lazy = false,
   -- }
 }
-
-return plugins
