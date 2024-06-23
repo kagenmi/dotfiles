@@ -1,10 +1,11 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local lsputil = require "lspconfig/util"
 
-local utils = require "custom.utils"
+local utils = require "utils"
 
 -- if you just want default config for the servers then put them in a table
 local servers = { "html", "cssls", "clangd", "gopls", "terraformls", "tailwindcss", "tflint" }
@@ -42,6 +43,7 @@ lspconfig.pyright.setup {
 
 lspconfig.tsserver.setup {
   on_attach = on_attach,
+  on_init = on_init,
   capabilities = capabilities,
   init_options = {
     hostInfo = 'neovim',
@@ -50,3 +52,4 @@ lspconfig.tsserver.setup {
     }
   }
 }
+
