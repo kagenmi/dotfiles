@@ -21,9 +21,9 @@ cp ./squash-root/usr/share/* ~/.local/share
 
 ## Setup
 
-### 1. Install `neovim`
+### 1. Install neovim
 
-Neovim 0.9.0+ is required.
+Neovim 0.1.0+ is required.
 
 #### MacOS
 
@@ -31,15 +31,8 @@ Neovim 0.9.0+ is required.
 brew neovim
 ```
 
-### 2. Install NvChad
-
-ref. [NvChad Doc - Install](https://nvchad.com/docs/quickstart/install)
-```shell
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-```
-
-### 3. Symbolic link the custom config
+### 2. Symbolic link the custom config
 
 ```shell
-ln -s <dotfile dir>/nvchad/custom ~/.config/nvim/lua
+ln -s <dotfile dir>/nvim ~/.config/nvim
 ```
