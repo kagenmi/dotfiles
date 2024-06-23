@@ -20,6 +20,7 @@ zinit wait lucid light-mode for \
     'OMZL::git.zsh' \
     'mattberther/zsh-pyenv' \
     'cda0/zsh-tfenv' \
+    'zsh-users/zsh-syntax-highlighting' \
   atload"unalias grv" \
     'OMZP::git' \
   atload'zicompinit; zicdreplay' \
