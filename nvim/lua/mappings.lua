@@ -42,6 +42,16 @@ map("n", "<LEADER>tt", function() require("base46").toggle_theme() end, { desc =
 
 map("n", "<LEADER>e", "") -- suppress default
 
+-- lspconfig
+-- ---------
+
+map("n", "<LEADER>lf",
+  function()
+    vim.diagnostic.open_float { border = "rounded" }
+  end,
+  { desc = "Floating diagnostic." }
+)
+
 -- WinShift
 -- --------
 

@@ -1,5 +1,33 @@
 local M = {}
 
+M.scandir = function(directory)
+   local files = {}
+   local path = vim.fn.stdpath('config')..'/lua/'..directory
+   local filter = [[v:val =~ '\.lua$']]
+
+   for _, file in ipairs(vim.fn.readdir(path, filter)) do
+      local name = ''..file:gsub('%.lua$', '')
+      table.insert(files, name)
+   end
+
+   return files
+end
+
+M.load_overrides = function()
+   local overrides = {}
+
+   for _, filename in ipairs(M.scandir('custom/plugin_overrides')) do
+      local config = require('custom.plugin_overrides.' .. filename)
+      overrides[config[1]] = config[2]
+   end
+
+   return overrides
+end
+
+M.path_join = function(...)
+   return table.concat( vim.tbl_flatten {...}, "/")
+end
+
 M.get_python_path = function(workspace)
    local path_join = M.path_join
 
