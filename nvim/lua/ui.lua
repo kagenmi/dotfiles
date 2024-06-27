@@ -1,12 +1,5 @@
 local M = {}
 
----@type Base46HLGroupsList
-M.hl_override = {
-  Comment = {
-    italic = true,
-  },
-}
-
 ---@type HLTable
 M.hl_add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
@@ -22,6 +15,15 @@ M.hl_add = {
   FlashLabel = { fg = 'black', bg = '#FF75A0', bold = true },
 }
 
+---@type Base46HLGroupsList
+M.hl_override = {
+  LineNr = { fg = 'grey_fg' },
+  Comment = { fg = 'white' },
+  NvimTreeWinSeparator = { fg = 'light_grey' },
+  WinSeparator = { fg = 'light_grey' },
+
+}
+
 M.changed_themes = {
   tokyonight = {
     base_30 = {
@@ -35,6 +37,11 @@ M.changed_themes = {
       grey_fg = '#737c8c',
     }
   },
+  -- jabuti = {
+  --   base_30 = {
+  --     grey_fg = ''
+  --   }
+  -- }
 }
 
 return M
