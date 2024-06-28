@@ -17,11 +17,11 @@ M.hl_add = {
 
 ---@type Base46HLGroupsList
 M.hl_override = {
-  LineNr = { fg = 'grey_fg' },
-  Comment = { fg = 'white' },
+  LineNr = { fg = 'grey_fg2' },
+  Comment = { fg = 'nord_blue', italic = true },
+  ['@comment'] = { fg = 'nord_blue', italic = true }, -- for treesitter
   NvimTreeWinSeparator = { fg = 'light_grey' },
   WinSeparator = { fg = 'light_grey' },
-
 }
 
 M.changed_themes = {
@@ -37,11 +37,6 @@ M.changed_themes = {
       grey_fg = '#737c8c',
     }
   },
-  -- jabuti = {
-  --   base_30 = {
-  --     grey_fg = ''
-  --   }
-  -- }
 }
 
 return M

@@ -73,11 +73,6 @@ return {
     end,
   },
 
-  -- },
-  --  "fedepujol/bracketpair.nvim",
-  --  event = "InsertEnter",
-  -- },
-
   {
     "sindrets/winshift.nvim",
     lazy = false,
@@ -119,25 +114,4 @@ return {
       -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
-
-  -- general-purpose motion plugin
-  -- {
-  --   "ggandor/leap.nvim",
-  --   keys = "s",
-  -- }
-
-
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
 }
