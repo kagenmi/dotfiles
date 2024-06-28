@@ -61,7 +61,8 @@ alias vim='nvim'
 alias editalacritty="vim ~/.config/alacritty/alacritty.yml"
 alias edittmux="vim $HOME/.config/tmux/tmux.conf"
 alias editrc="vim $ZSH_CONF_HOME/zshrc.zsh"
-alias clear-nvim-cache="command rm -rf $HOME/.local/share/nvim/swap && command rm -rf $HOME/.local/state/nvim/swap"
+alias nvim-clear="command rm -rf $HOME/.local/share/nvim/swap && command rm -rf $HOME/.local/state/nvim/swap"
+alias nvim-reset="command rm -rf $HOME/.local/share/nvim && command rm -rf $HOME/.local/state/nvim"
 
 if type trash-put &> /dev/null; then
   alias rm=trash-put
