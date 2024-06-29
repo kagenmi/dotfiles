@@ -6,7 +6,8 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     event = "VeryLazy",
     config = function()
-      require "configs.conform"
+      local opts = require("configs.conform")
+      require("conform").setup(opts)
     end,
   },
 
@@ -15,7 +16,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
+      require("configs.lspconfig").setup()
     end, -- Override to setup mason-lspconfig
   },
 
@@ -112,6 +113,20 @@ return {
       -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
       -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
+
+  -- Switch between ineline and multiline
+  {
+    "AndrewRadev/splitjoin.vim",
+    event = "VeryLazy",
+  },
+
+  {
+    "zapling/mason-conform.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "stevearc/conform.nvim",
     },
   },
 }

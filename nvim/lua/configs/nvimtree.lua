@@ -23,6 +23,15 @@ return {
   view = {
     preserve_window_proportions = false,
   },
+  tab = {
+    sync = {
+      open = true,
+      close = true,
+    },
+  },
+  trash = {
+    cmd = "trash-put",
+  },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
 

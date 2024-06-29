@@ -8,48 +8,67 @@ local lsputil = require "lspconfig/util"
 local utils = require "utils"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "gopls", "terraformls", "tailwindcss", "tflint" }
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+local server_opts = {
+  html = {},
+  cssls = {},
+  clangd = {},
+  gopls = {},
+  terraformls = {},
+  tailwindcss = {},
+  tflint = {},
+  pyright = {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
-end
-
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lsputil.root_pattern { "pyproject.toml", ".git" },
-  settings = {
-    python = {
-      analysis = {
-        diagnosticSeverityOverrides = {
-          reportUnboundVariable = 'none',
-          reportOptionalIterable = 'none',
-          reportOptionalSubscript = 'none',
-          reportGeneralTypeIssues = 'none',
+    root_dir = lsputil.root_pattern { "pyproject.toml", ".git" },
+    settings = {
+      python = {
+        analysis = {
+          diagnosticSeverityOverrides = {
+            reportUnboundVariable = 'none',
+            reportOptionalIterable = 'none',
+            reportOptionalSubscript = 'none',
+            reportGeneralTypeIssues = 'none',
+          },
+          authSearchPath = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true,
         },
-        authSearchPath = true,
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true,
       },
     },
+    on_init = function(client)
+      client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
+    end,
   },
-  on_init = function(client)
-    client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
-  end,
-}
-
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  init_options = {
-    hostInfo = 'neovim',
-    preferences = {
-      quotePreference = 'single',
+  tsserver = {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+    init_options = {
+      hostInfo = 'neovim',
+      preferences = {
+        quotePreference = 'single',
+      }
     }
   }
 }
 
+local function setup()
+  for lsp, opt in pairs(server_opts) do
+    if next(opt) == nil then
+      lspconfig[lsp].setup {
+        on_attach = on_attach,
+        on_init = on_init,
+        capabilities = capabilities,
+      }
+    else
+      lspconfig[lsp].setup(opt)
+    end
+  end
+end
+
+local servers = vim.tbl_keys(server_opts)
+
+return {
+  servers = servers,
+  setup = setup,
+}
