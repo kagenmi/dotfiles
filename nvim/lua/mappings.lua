@@ -11,6 +11,10 @@ map('n', '<leader>x', ':split<CR>', { desc = "Split window horizontally" })
 map('n', '<leader>v', ':vsplit<CR>', { desc = "Split window vertically" })
 map('v', '>', '>gv', { desc = "Indent" })
 
+-- Move the cursor through wrapped lines
+map('n', 'j', 'gj', { desc = "Go down" })
+map('n', 'k', 'gk', { desc = "Go up" })
+
 -- Comment
 -- -------
 
