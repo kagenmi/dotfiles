@@ -32,6 +32,13 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+   pattern = "python",
+   callback = function()
+      opt.shiftwidth = 4
+   end,
+})
+
+autocmd("FileType", {
   pattern = "help",
   callback = function(opts)
     local buf = opts.buf
