@@ -9,7 +9,8 @@ local map = vim.keymap.set
 
 map('n', '<leader>x', ':split<CR>', { desc = "Split window horizontally" })
 map('n', '<leader>v', ':vsplit<CR>', { desc = "Split window vertically" })
-map('v', '>', '>gv', { desc = "Indent" })
+map('v', '>', '>gv', { desc = "Indent to right" })
+map('v', '<', '<gv', { desc = "Indent to left" })
 
 -- Move the cursor through wrapped lines
 map({'n', 'v'}, 'j', 'gj', { desc = "Go down" })
