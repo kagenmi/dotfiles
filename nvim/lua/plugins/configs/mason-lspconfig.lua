@@ -8,7 +8,6 @@ M.setup = function()
     ensure_installed = {
       -- lua stuff
       "lua_ls",
-      "stylua",
 
       -- web dev stuff
       "cssls",
