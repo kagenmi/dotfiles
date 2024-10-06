@@ -39,7 +39,7 @@ local server_opts = {
       client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
     end,
   },
-  tsserver = {
+  ts_ls = {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
