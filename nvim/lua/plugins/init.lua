@@ -1,4 +1,4 @@
-local misc = require("configs.misc")
+local misc = require("plugins.configs.misc")
 
 return {
   {
@@ -6,7 +6,7 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     event = "VeryLazy",
     config = function()
-      local opts = require("configs.conform")
+      local opts = require("plugins.configs.conform")
       require("conform").setup(opts)
     end,
   },
@@ -16,14 +16,14 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require("configs.lspconfig").setup()
+      require("plugins.configs.lspconfig").setup()
     end, -- Override to setup mason-lspconfig
   },
 
   {
     "stevearc/conform.nvim",
     config = function()
-      require "configs.conform"
+      require "plugins.configs.conform"
     end,
   },
 
@@ -48,13 +48,23 @@ return {
   },
 
   {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    event = { "User FilePost" },
+    -- lazy = false,
+    config = function()
+      require("plugins.configs.mason-lspconfig").setup()
+    end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = misc.treesitter,
   },
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = require("configs.nvimtree"),
+    opts = require("plugins.configs.nvimtree"),
   },
 
   -- Install a plugin

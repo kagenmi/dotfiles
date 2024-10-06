@@ -39,26 +39,7 @@ M.cmp = {
   },
 }
 
-M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
-
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier",
-    "tailwindcss-language-server",
-    "gopls",
-    "pyright",
-
-    -- c/cpp stuff
-    "terraform-ls",
-  },
-}
+M.mason = { }
 
 M.flash = {
   jump = {
