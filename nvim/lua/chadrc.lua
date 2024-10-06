@@ -4,11 +4,11 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {
+M.base46 = {
 	theme = "jabuti",
   theme_toggle = { "jabuti", "ayu_light"},
 }
 
-M.ui = vim.tbl_deep_extend('keep', M.ui, require "ui")
+M.base46 = vim.tbl_deep_extend('keep', M.base46, require "ui")
 
 return M
