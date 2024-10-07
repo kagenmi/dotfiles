@@ -21,13 +21,6 @@ return {
   },
 
   {
-    "stevearc/conform.nvim",
-    config = function()
-      require "plugins.configs.conform"
-    end,
-  },
-
-  {
     "hrsh7th/nvim-cmp",
     opts = misc.cmp,
 
@@ -135,6 +128,7 @@ return {
   {
     "zapling/mason-conform.nvim",
     event = "VeryLazy",
+    dependencies = { "williamboman/mason.nvim", "stevearc/conform.nvim" },
     config = function()
       require("mason-conform").setup()
     end,
