@@ -1,4 +1,6 @@
 return {
+  -- Override plugin definition options
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -9,7 +11,6 @@ return {
     end,
   },
 
-  -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -33,6 +34,15 @@ return {
   },
 
   {
+    "nvchad/minty",
+    event = "BufReadPost",
+    dependencies = {
+      "nvchad/volt",
+      "nvchad/menu",
+    },
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
@@ -40,20 +50,9 @@ return {
     },
   },
 
-  -- override plugin configs
   {
     "williamboman/mason.nvim",
     opts = require("plugins.configs.mason")
-  },
-
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    event = { "User FilePost" },
-    -- lazy = false,
-    config = function()
-      require("plugins.configs.mason-lspconfig").setup()
-    end,
   },
 
   {
@@ -66,7 +65,9 @@ return {
     opts = require("plugins.configs.nvimtree"),
   },
 
-  -- Install a plugin
+  -- Install custom plugins
+  -- ----------------------
+
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -137,6 +138,16 @@ return {
     dependencies = { "williamboman/mason.nvim", "stevearc/conform.nvim" },
     config = function()
       require("mason-conform").setup()
+    end,
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    event = { "User FilePost" },
+    -- lazy = false,
+    config = function()
+      require("plugins.configs.mason-lspconfig").setup()
     end,
   },
 
