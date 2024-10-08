@@ -34,6 +34,14 @@ return {
     }
   },
 
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      scope = { enabled = false },
+    },
+  },
+
   -- override plugin configs
   {
     "williamboman/mason.nvim",
@@ -133,4 +141,12 @@ return {
       require("mason-conform").setup()
     end,
   },
+
+  {
+    "shellRaining/hlchunk.nvim",
+    event = "BufReadPost",
+    config = function()
+      require("plugins.configs.hlchunk").setup()
+    end,
+  }
 }
