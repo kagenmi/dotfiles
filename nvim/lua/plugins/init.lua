@@ -1,5 +1,3 @@
-local misc = require("plugins.configs.misc")
-
 return {
   {
     "stevearc/conform.nvim",
@@ -22,7 +20,7 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    opts = misc.cmp,
+    opts = require("plugins.configs.cmp"),
 
     dependencies = {
       {
@@ -45,7 +43,7 @@ return {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = misc.mason
+    opts = require("plugins.configs.mason")
   },
 
   {
@@ -60,7 +58,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = misc.treesitter,
+    opts = require("plugins.configs.treesitter"),
   },
 
   {
@@ -117,7 +115,7 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = misc.flash,
+    opts = require("plugins.configs.flash"),
     keys = {
       -- { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       -- { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
