@@ -14,7 +14,6 @@ M.setup = function()
       "html",
       "ts_ls",
       "tailwindcss",
-      "denols",
       "gopls",
       "pyright",
 
