@@ -16,6 +16,7 @@ local server_opts = {
   terraformls = {},
   tailwindcss = {},
   tflint = {},
+  powershell_es = {},
   pyright = {
     on_attach = on_attach,
     capabilities = capabilities,
