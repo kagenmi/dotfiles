@@ -22,7 +22,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     opts = require("plugins.configs.cmp"),
-
     dependencies = {
       {
         "jcdickinson/codeium.nvim",

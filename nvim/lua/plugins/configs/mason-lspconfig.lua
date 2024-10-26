@@ -18,6 +18,7 @@ M.setup = function()
       "pyright",
 
       -- others
+      "powershell_es",
       "terraformls",
     },
     automatic_installation = true,
