@@ -7,6 +7,7 @@ return {
     { name = "buffer" },
     { name = "codeium" },
     { name = "nvim_lua" },
+    { name = "copilot" },
   },
   experimental = {
     ghost_text = true,
