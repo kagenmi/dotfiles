@@ -10,7 +10,30 @@ local utils = require "utils"
 -- if you just want default config for the servers then put them in a table
 local server_opts = {
   html = {},
-  cssls = {},
+  cssls = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      css = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore", -- Suppress warning: cssls cannot recognize tailwindcss
+        },
+      },
+      less = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore", -- Suppress warning: cssls cannot recognize tailwindcss
+        },
+      },
+      scss = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore", -- Suppress warning: cssls cannot recognize tailwindcss
+        },
+      },
+    },
+  },
   clangd = {},
   gopls = {},
   terraformls = {},
