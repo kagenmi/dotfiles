@@ -8,8 +8,6 @@ autoload colors
 colors
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
-export NVM_AUTO_LOAD=true
-export NVM_COMPLETION=false
 
 zinit depth'1' light-mode for \
     romkatv/powerlevel10k
@@ -21,12 +19,9 @@ zinit wait lucid light-mode for \
     'mattberther/zsh-pyenv' \
     'cda0/zsh-tfenv' \
     'zsh-users/zsh-syntax-highlighting' \
-  atload"unalias grv" \
-    'OMZP::git' \
-  atload'zicompinit; zicdreplay' \
-    'lukechilds/zsh-nvm' \
-    'unixorn/zsh-gvm' \
-    https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh \
-  atinit'zicompinit; zicdreplay' \
-    'zdharma-continuum/fast-syntax-highlighting' \
-    'OMZP::colored-man-pages'
+  atinit'VOLTA_HOME="${HOME}/.local/volta"' '0xTadash1/zsh-quick-volta' \
+  atload'unalias grv'             'OMZP::git' \
+  atload'zicompinit; zicdreplay'  'unixorn/zsh-gvm' \
+  atload'zicompinit; zicdreplay'  'https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh' \
+  atinit'zicompinit; zicdreplay'  'zdharma-continuum/fast-syntax-highlighting' \
+  atinit'zicompinit; zicdreplay'  'OMZP::colored-man-pages'
