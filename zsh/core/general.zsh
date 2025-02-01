@@ -63,6 +63,7 @@ alias edittmux="vim $HOME/.config/tmux/tmux.conf"
 alias editrc="vim $ZSH_CONF_HOME/zshrc.zsh"
 alias nvim-clear="command rm -rf $HOME/.local/share/nvim/swap && command rm -rf $HOME/.local/state/nvim/swap"
 alias nvim-reset="command rm -rf $HOME/.local/share/nvim && command rm -rf $HOME/.local/state/nvim"
+alias cd-top="cd $(git rev-parse --show-toplevel)"
 
 if type trash-put &> /dev/null; then
   alias rm=trash-put
