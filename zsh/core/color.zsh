@@ -6,7 +6,7 @@ if is-mac; then
   alias dircolors='gdircolors'
 fi
 
-local theme='nord'
+local theme='yurufuwa'
 if [[ -f "$ZSH_CONFIG_HOME/core/dircolors/$theme" ]]; then
   eval $(dircolors "$ZSH_CONFIG_HOME/core/dircolors/$theme")
 fi
