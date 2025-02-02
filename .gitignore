@@ -5,6 +5,9 @@
 *.swp
 *.swo
 
+# general
+*.local
+
 # tmux
 tmux/error-logs.txt
 tmux/plugins/*
