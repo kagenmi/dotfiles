@@ -1,5 +1,5 @@
 DIR="$ZSH_CONFIG_HOME/plugins"
-source "$DIR/zinit.zsh"
+source "$DIR/setup.zsh"
 
 # Be depended on by most themes
 setopt promptsubst
@@ -8,25 +8,42 @@ autoload colors
 colors
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
-export NVM_AUTO_LOAD=true
-export NVM_COMPLETION=false
+# export NVM_AUTO_LOAD=true
+# export NVM_COMPLETION=false
 
-zinit depth'1' light-mode for \
-    romkatv/powerlevel10k
+zinit lucid light-mode nocd depth=1 \
+  atload"source $ZSH_CONFIG_HOME/plugins/configs/powerlevel10k-atload.zsh" \
+  for '@romkatv/powerlevel10k'
 
-zinit wait lucid light-mode for \
+zinit wait'0' lucid light-mode for \
     'zsh-users/zsh-completions' \
     'zsh-users/zsh-autosuggestions' \
     'OMZL::git.zsh' \
-    'mattberther/zsh-pyenv' \
-    'cda0/zsh-tfenv' \
-    'zsh-users/zsh-syntax-highlighting' \
   atload"unalias grv" \
-    'OMZP::git' \
+    'OMZP::git'
+
+zinit wait'0a' lucid light-mode \
   atload'zicompinit; zicdreplay' \
-    'lukechilds/zsh-nvm' \
-    'unixorn/zsh-gvm' \
-    https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh \
-  atinit'zicompinit; zicdreplay' \
+  for \
     'zdharma-continuum/fast-syntax-highlighting' \
-    'OMZP::colored-man-pages'
+    'OMZP::colored-man-pages' \
+    'https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh'
+
+# zinit wait'0b' lucid is-snippet for \
+#     "$DIR/local/uv-auto-install.zsh"
+# zinit wait as'none' \
+#   id-as'local-plugins' nocompile \
+#   multisrc"$$DIR/local/uv-auto-install.zsh" \
+#   run-atpull \
+#   for 'zdharma/null'
+
+zinit wait'1b' lucid light-mode \
+  atload'zicompinit; zicdreplay' \
+  for \
+    'unixorn/zsh-gvm' \
+    'cda0/zsh-tfenv' \
+    '0xTadash1/zsh-quick-volta' \
+    'mattberther/zsh-pyenv' \
+    'lipov3cz3k/zsh-uv'
+
+source "$DIR/local/uv-auto-install.zsh"
