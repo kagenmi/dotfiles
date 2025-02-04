@@ -14,11 +14,6 @@ export PATH=$HOME/.yarn/bin:$PATH
 
 source "$ZSH_CONFIG_HOME/plugins/init.zsh"
 
-# PowerLevel10K
-# -------------
-
-source "$ZSH_CONFIG_HOME/powerlevel10k/init.zsh"
-
 # Custom Configuration
 # --------------------
 

@@ -52,6 +52,9 @@ pip-uninstall-all() {
   pip freeze | xargs pip uninstall -y
 }
 
+cd-top() {
+  cd $(git rev-parse --show-toplevel)
+}
 
 # Aliases
 # -------
@@ -83,3 +86,4 @@ fi
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
+
