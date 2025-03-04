@@ -39,6 +39,7 @@ local server_opts = {
   terraformls = {},
   tailwindcss = {},
   tflint = {},
+  gitlab_ci_ls = {},
   powershell_es = {},
   pyright = {
     on_attach = on_attach,
