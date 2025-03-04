@@ -6,7 +6,7 @@ cmp_window() {
   if [[ $active == true ]]; then
     local number_bg=$thm_green
   else
-    local number_bg=$thm_pink
+    local number_bg=$thm_light_gray
   fi
   local number_fg=$thm_fg
   local text_bg=$thm_cyan
