@@ -5,7 +5,7 @@ return {
   },
   filters = {
     git_ignored = false,
-    custom = {".git", "venv", ".venv", "__pycache__"},
+    custom = {"^\\.git$", "^venv$", "^\\.venv$", "^__pycache__$"},
   },
   renderer = {
     highlight_git = true,
