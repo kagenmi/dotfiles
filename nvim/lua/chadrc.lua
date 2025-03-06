@@ -5,8 +5,8 @@
 local M = {}
 
 M.base46 = {
-	theme = "yurufuwa",
-  theme_toggle = { "yurufuwa", "ayu_light"},
+	theme = "jabuti",
+  theme_toggle = { "jabuti", "ayu_light"},
 }
 
 M.base46 = vim.tbl_deep_extend('keep', M.base46, require "ui")
