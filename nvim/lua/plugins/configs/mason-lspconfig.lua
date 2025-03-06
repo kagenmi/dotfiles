@@ -20,7 +20,7 @@ M.setup = function()
       -- others
       "powershell_es",
       "terraformls",
-      "gitlab_ci_ls",
+      "hclfmt",
     },
     automatic_installation = true,
   })

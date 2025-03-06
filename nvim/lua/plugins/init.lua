@@ -23,12 +23,12 @@ return {
     "hrsh7th/nvim-cmp",
     opts = require("plugins.configs.cmp"),
     dependencies = {
-      -- {
-      --   "jcdickinson/codeium.nvim",
-      --   config = function()
-      --     require("codeium").setup {}
-      --   end,
-      -- }
+      {
+        "jcdickinson/codeium.nvim",
+        config = function()
+          require("codeium").setup {}
+        end,
+      }
     }
   },
 
@@ -158,24 +158,24 @@ return {
     end,
   },
 
-	{
-	  "zbirenbaum/copilot-cmp",
-    event = { "InsertEnter", "LspAttach" },
-	  config = function()
-	    require("copilot_cmp").setup()
-	  end,
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        config = function()
-          require("copilot").setup({
-            suggestion = {enabled = false},
-            panel = {enabled = false},
-            copilot_node_command = 'node'
-          })
-        end,
-      },
-    },
-	},
+	-- {
+	--   "zbirenbaum/copilot-cmp",
+	--    event = { "InsertEnter", "LspAttach" },
+	--   config = function()
+	--     require("copilot_cmp").setup()
+	--   end,
+	--    dependencies = {
+	--      {
+	--        "zbirenbaum/copilot.lua",
+	--        config = function()
+	--          require("copilot").setup({
+	--            suggestion = {enabled = false},
+	--            panel = {enabled = false},
+	--            copilot_node_command = 'node'
+	--          })
+	--        end,
+	--      },
+	--    },
+	-- },
 
 }
