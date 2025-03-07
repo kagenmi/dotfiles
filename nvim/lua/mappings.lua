@@ -8,9 +8,13 @@ local map = vim.keymap.set
 -- -------
 
 map('n', '<leader>x', ':split<CR>', { desc = "Split window horizontally" })
-map('n', '<leader>v', ':vsplit<CR>', { desc = "Split window vertically" })
+map('n', '<leader>v', ':vsplit<C:>', { desc = "Split window vertically" })
 map('v', '>', '>gv', { desc = "Indent to right" })
 map('v', '<', '<gv', { desc = "Indent to left" })
+
+-- Don't copy the replaced text after pasting in visual mode
+-- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+map('x', 'p', 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Paste without clipboard" })
 
 -- Move the cursor through wrapped lines
 map({'n', 'v'}, 'j', 'gj', { desc = "Go down" })
