@@ -8,6 +8,9 @@ if is-wsl; then
   export DISPLAY=":0"
 fi
 
+# Prevent garbled Japanese text in less
+export LESSCHARSET=utf-8
+
 # Configure
 # ---------
 
