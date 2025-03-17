@@ -8,7 +8,7 @@ local map = vim.keymap.set
 -- -------
 
 map('n', '<leader>x', ':split<CR>', { desc = "Split window horizontally" })
-map('n', '<leader>v', ':vsplit<C:>', { desc = "Split window vertically" })
+map('n', '<leader>v', ':vsplit<CR>', { desc = "Split window vertically" })
 map('v', '>', '>gv', { desc = "Indent to right" })
 map('v', '<', '<gv', { desc = "Indent to left" })
 
