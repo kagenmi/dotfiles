@@ -1,5 +1,9 @@
 local M = {}
 
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
+local capabilities = require("nvchad.configs.lspconfig").capabilities
+
 M.setup = function()
   local mason_lspconfig = require "mason-lspconfig"
   local lspconfig = require "lspconfig"
@@ -20,15 +24,29 @@ M.setup = function()
       -- others
       "powershell_es",
       "terraformls",
-      "hclfmt",
     },
     automatic_installation = true,
-  })
+    handlers = {
+      function (server_name)
+        lspconfig[server_name].setup {
+          on_attach = on_attach,
+          on_init = on_init,
+          capabilities = capabilities,
+        }
+      end,
 
-  mason_lspconfig.setup_handlers({
-    function(server_name)
-      lspconfig[server_name].setup {}
-    end,
+      terraformls = function()
+        lspconfig.terraformls.setup {
+          on_attach = function(client, bufnr)
+            print("on_attach()")
+            on_attach(client, bufnr)
+            vim.api.nvim_buf_set_option(bufnr, "commentstring", "// %s")
+          end,
+          on_init = on_init,
+          capabilities = capabilities,
+        }
+      end,
+    }
   })
 end
 

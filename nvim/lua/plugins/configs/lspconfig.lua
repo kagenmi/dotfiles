@@ -36,10 +36,7 @@ local server_opts = {
   },
   clangd = {},
   gopls = {},
-  terraformls = {},
   tailwindcss = {},
-  tflint = {},
-  hclfmt = {},
   powershell_es = {},
   pyright = {
     on_attach = on_attach,
