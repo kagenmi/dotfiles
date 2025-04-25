@@ -15,8 +15,8 @@ export LESSCHARSET=utf-8
 # ---------
 
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 setopt appendhistory
 
 # Utils
@@ -57,6 +57,15 @@ pip-uninstall-all() {
 
 cd-top() {
   cd $(git rev-parse --show-toplevel)
+}
+
+fix-zsh-history() {
+  cd ~
+  mv .zsh_history .zsh_history_corrupt
+  strings .zsh_history_corrupt > .zsh_history
+  fc -R .zsh_history
+  rm -f .zsh_history_corrupt
+  cd - > /dev/null 2>&1
 }
 
 # Aliases
