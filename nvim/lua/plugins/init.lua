@@ -56,7 +56,8 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require("plugins.configs.treesitter"),
+    opts = require("plugins.configs.treesitter").opts,
+    config = require("plugins.configs.treesitter").setup(),
   },
 
   {
@@ -157,26 +158,6 @@ return {
       require("plugins.configs.hlchunk").setup()
     end,
   },
-
-	-- {
-	--   "zbirenbaum/copilot-cmp",
-	--    event = { "InsertEnter", "LspAttach" },
-	--   config = function()
-	--     require("copilot_cmp").setup()
-	--   end,
-	--    dependencies = {
-	--      {
-	--        "zbirenbaum/copilot.lua",
-	--        config = function()
-	--          require("copilot").setup({
-	--            suggestion = {enabled = false},
-	--            panel = {enabled = false},
-	--            copilot_node_command = 'node'
-	--          })
-	--        end,
-	--      },
-	--    },
-	-- },
 
   {
      'tzachar/cmp-tabnine',
