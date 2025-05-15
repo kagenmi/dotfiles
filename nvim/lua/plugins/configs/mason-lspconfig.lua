@@ -24,6 +24,8 @@ M.setup = function()
       -- others
       "powershell_es",
       "terraformls",
+      "tflint",
+      "bicep",
     },
     automatic_installation = true,
     handlers = {
@@ -35,15 +37,37 @@ M.setup = function()
         }
       end,
 
+      lua_ls = function()
+        lspconfig.lua_ls.setup {
+          settings = {
+            Lua = {
+              runtime = {
+                version = "LuaJIT",
+              },
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+              },
+              telemetry = {
+                enable = false,
+              },
+            },
+          },
+        }
+      end,
+
       terraformls = function()
         lspconfig.terraformls.setup {
           on_attach = function(client, bufnr)
-            print("on_attach()")
             on_attach(client, bufnr)
             vim.api.nvim_buf_set_option(bufnr, "commentstring", "// %s")
           end,
           on_init = on_init,
           capabilities = capabilities,
+          filetypes = { "terraform", "tf", "hcl", "terraform-vars" },
         }
       end,
     }

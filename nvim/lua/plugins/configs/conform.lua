@@ -6,6 +6,8 @@ local options = {
     javascript = { "prettier" },
     python = { "autopep8", "isort" },
     json = { "prettier" },
+    terraform = { "terraform_fmt" },
+    ["terraform-vars"] = { "terraform_fmt" },
     ["_"] = { "trim_whitespace" },
   },
 
