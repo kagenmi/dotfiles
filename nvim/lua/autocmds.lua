@@ -29,22 +29,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
--- Config Indentation
-
-autocmd("FileType", {
-   pattern = "go",
-   callback = function()
-      opt.shiftwidth = 4
-   end,
-})
-
-autocmd("FileType", {
-   pattern = "python",
-   callback = function()
-      opt.shiftwidth = 4
-   end,
-})
-
 autocmd("FileType", {
   pattern = "help",
   callback = function(opts)
