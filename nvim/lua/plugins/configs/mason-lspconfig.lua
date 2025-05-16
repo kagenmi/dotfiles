@@ -70,6 +70,17 @@ M.setup = function()
           filetypes = { "terraform", "tf", "hcl", "terraform-vars" },
         }
       end,
+
+      bicep = function()
+        lspconfig.bicep.setup {
+          on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+            vim.api.nvim_buf_set_option(bufnr, "commentstring", "// %s")
+          end,
+          on_init = on_init,
+          capabilities = capabilities,
+        }
+      end,
     }
   })
 end
