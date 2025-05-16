@@ -70,6 +70,49 @@ fix-zsh-history() {
   cd - > /dev/null 2>&1
 }
 
+open-web() {
+  local weburl="$1"
+
+  if is-wsl; then
+    if command -v wslview &>/dev/null; then
+      wslview "$weburl"
+    else
+      echo "Command 'wslview' is required."
+      echo "Run: sudo apt install wslu"
+      return 1
+    fi
+  elif command -v xdg-open &>/dev/null; then
+    xdg-open "$weburl"
+  elif command -v open &>/dev/null; then  # for macOS
+    open "$weburl"
+  else
+    echo "❌ No supported method to open URL found."
+    return 1
+  fi
+}
+
+git-open() {
+  local url weburl
+
+  url=$(git remote get-url origin 2>/dev/null)
+  if [[ -z "$url" ]]; then
+    echo "❌ No remote 'origin' found."
+    return 1
+  fi
+
+  if [[ "$url" =~ '^git@([^:]+):(.+)\.git$' ]]; then
+    weburl="https://${match[1]}/${match[2]}"
+  elif [[ "$url" =~ '^https://([^/]+)/(.+)\.git$' ]]; then
+    weburl="https://${match[1]}/${match[2]}"
+  else
+    echo "❌ Unsupported remote URL format: $url"
+    return 1
+  fi
+
+  echo "Open ${weburl}"
+  open-web "$weburl"
+}
+
 # Aliases
 # -------
 
