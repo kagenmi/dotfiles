@@ -35,6 +35,9 @@ move_right() {
 
 # Exit the mode: unbind keys and renumber windows
 exit_mode() {
+  local status_backup="$(tmux show-option -gqv @status_right_backup)"
+  tmux set -g status-right "$status_backup"
+
   tmux unbind-key -n '<'
   tmux unbind-key -n '>'
   tmux unbind-key -n 'q'

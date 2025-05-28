@@ -8,7 +8,7 @@ Configs for me.
 ### Mandatory
 
 Install following packages.
-- `tmux` (1.9+)
+- `tmux` (3.5+)
 - `neovim` (0.8.0+)
 - Dependencies for `pyenv` (see [pyenv wiki](https://github.com/pyenv/pyenv/wiki#suggested-build-environment))
 - `coreutils` (only MacOS)
