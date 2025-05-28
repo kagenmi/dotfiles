@@ -11,6 +11,7 @@
 
 # tmux
 tmux/error-logs.txt
+tmux/tmux-client-*.log
 tmux/plugins/*
 
 # zsh
