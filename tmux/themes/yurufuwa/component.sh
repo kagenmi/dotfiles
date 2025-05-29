@@ -32,7 +32,7 @@ cmp_status_left() {
   local text=$1
 
   local color=$thm_cyan
-  local icon=""
+  local icon=" "
   local left_separator="█"
   local middle_separator="█"
   local right_separator="█ "
@@ -74,7 +74,7 @@ cmp_module() {
   if [[ $is_last == true ]]; then
     local fmt_right_separator="#[fg=$color,bg=$thm_bg]$right_separator"
   else
-    local fmt_right_separator="#[fg=$color]right_separator"
+    local fmt_right_separator="#[fg=$color] $right_separator"
   fi
 
   echo "$fmt_left_separator$fmt_icon$fmt_middle_separator$fmt_text$fmt_right_separator"
@@ -85,7 +85,7 @@ cmp_module_clock() {
   local color_bg=$2
   local left_color_bg=$3
 
-  echo $(cmp_module "󰃰" "%Y-%m-%d %H:%M" "$color_bg" $is_local "$left_color_bg")
+  echo $(cmp_module "󰃰 " "%Y-%m-%d %H:%M" "$color_bg" $is_last "$left_color_bg")
 }
 
 cmp_module_host() {
@@ -93,5 +93,5 @@ cmp_module_host() {
   local color_bg=$2
   local left_color_bg=$3
 
-  echo $(cmp_module "󰒋" "#H" "$color_bg" $is_last "$left_color_bg")
+  echo $(cmp_module "󰒋 " "#H" "$color_bg" $is_last "$left_color_bg")
 }
