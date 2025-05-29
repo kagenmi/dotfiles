@@ -45,9 +45,10 @@ main() {
   local session=$(cmp_status_left "#S")
   set status-left "$session"
 
+  local prefix=$(cmp_module_prefix false $thm_magenta)
   local clock=$(cmp_module_clock false $thm_orange)
   local host=$(cmp_module_host true $thm_magenta $thm_orange)
-  set status-right "$clock$host"
+  set status-right "#{prefix_highlight}$clock$host"
 }
 
 main

@@ -80,6 +80,14 @@ cmp_module() {
   echo "$fmt_left_separator$fmt_icon$fmt_middle_separator$fmt_text$fmt_right_separator"
 }
 
+comp_module_prefix() {
+  local is_last=$1
+  local color_bg=$2
+  local left_color_bg=$3
+
+  echo $(cmp_module "" "#{prefix_highlight}" "$color_bg" $is_last "$left_color_bg")
+}
+
 cmp_module_clock() {
   local is_last=$1
   local color_bg=$2
