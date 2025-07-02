@@ -1,18 +1,11 @@
+[Include]
+  path = ~/.config/git/gitconfig.default
+
 [user]
-  name = default-user
-  email = default-user@example.com
-[pull]
-  rebase = false
-  ff = only
+  name = yourname
+  email = yourname@example.com
 [core]
-  ignorecase = false
-  pager = less -F -X
-  editor = vim
-  sshCommand = "ssh -i ~/.ssh/ed25519_default"
-[merge]
-  ff = false
-[push]
-  autoSetupRemote = true
+  sshCommand = "ssh -i ~/.ssh/ed25519_yourname"
 
 [includeIf "gitdir:~/Development/kagenmi/"]
   path = ~/.config/git/gitconfig.kagenmi

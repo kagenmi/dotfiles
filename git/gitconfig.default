@@ -1,0 +1,24 @@
+[user]
+  name = default-user
+  email = default-user@example.com
+[pull]
+  rebase = false
+  ff = only
+[core]
+  ignorecase = false
+  pager = less -F -X
+  editor = vim
+  quotepath = false
+  sshCommand = "ssh -i ~/.ssh/ed25519_default"
+[merge]
+  ff = false
+[push]
+  autoSetupRemote = true
+[diff]
+  wsErrorHighlight = all
+[tag]
+  sort = version:refname
+[init]
+  defaultBranch = main
+[http]
+  postBuffer = 157286400
