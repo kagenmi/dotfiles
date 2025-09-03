@@ -1,4 +1,5 @@
 thm_bg="#e6f7ff" # same color as the terminal bgcolor
+thm_ext_bg_dim="#dcf0fa" # dimmed background for inactive panes (5% darker than thm_bg)
 thm_fg="#00005f"
 thm_cyan="#afd7ff"
 thm_white="#f3eee8"

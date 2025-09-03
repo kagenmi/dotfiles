@@ -15,8 +15,12 @@ main() {
 
   # pane
   setw pane-border-status "off"
-  setw pane-border-style "fg=${thm_gray}"
-  setw pane-active-border-style "fg=${thm_cyan}"
+  setw pane-border-style "fg=${thm_cyan}"
+  setw pane-active-border-style "fg=${thm_orange}"
+
+  # pane background - dim inactive panes
+  set window-style "fg=default,bg=${thm_ext_bg_dim}"
+  set window-active-style "fg=default,bg=${thm_bg}"
 
   # status
   set status "on"
