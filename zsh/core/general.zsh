@@ -28,21 +28,6 @@ json-beauty() {
   echo $1 | python -m json.tool
 }
 
-# findwd():
-#   Find specific keyword on current directory recurively.
-# arguments:
-#   $1: (required) keyword
-#   $2: (optional) extension of file
-# example:
-#   `findwd hoge js`
-findwd(){
-  if [ -z "$2" ]; then
-    grep -Irn "$1" --color='auto' .
-  else
-    grep -Irn "$1" --include="*.$2" --color='auto' .
-  fi
-}
-
 show-colors() {
   for i in {0..255}; do
     print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};

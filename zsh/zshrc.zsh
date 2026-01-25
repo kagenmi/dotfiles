@@ -4,10 +4,7 @@
 # -------------
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.linuxbrew/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.yarn/bin:$PATH
 
 # zinit
 # -----

@@ -26,14 +26,3 @@ zinit wait'0a' lucid light-mode \
     'zdharma-continuum/fast-syntax-highlighting' \
     'OMZP::colored-man-pages' \
     'https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh'
-
-zinit wait'1b' lucid light-mode \
-  atload'zicompinit; zicdreplay' \
-  for \
-    'unixorn/zsh-gvm' \
-    'cda0/zsh-tfenv' \
-    '0xTadash1/zsh-quick-volta' \
-    'mattberther/zsh-pyenv' \
-    'lipov3cz3k/zsh-uv'
-
-source "$DIR/local/uv-auto-install.zsh"
