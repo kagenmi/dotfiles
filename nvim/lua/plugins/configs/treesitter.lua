@@ -14,6 +14,7 @@ return {
     "markdown_inline",
     "python",
     "terraform",
+    "hcl",
   },
   indent = {
     enable = true,
