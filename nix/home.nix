@@ -4,9 +4,7 @@
   # Home Manager version (do not change)
   home.stateVersion = "24.05";
 
-  # User information
-  home.username = "kagenmi";
-  home.homeDirectory = "/home/kagenmi";
+  # Note: home.username and home.homeDirectory are set in flake.nix
 
   # Package installation
   home.packages = with pkgs; [
@@ -16,9 +14,8 @@
     # Python package installer
     uv
 
-    # Trash CLI managers
+    # Trash CLI manager
     trash-cli
-    trashy
   ];
 
   # Program configurations (coexist with existing dotfiles)
