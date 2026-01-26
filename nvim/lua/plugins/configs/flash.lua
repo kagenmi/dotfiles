@@ -1,6 +1,6 @@
 return {
   jump = {
-    pos = "range",
+    pos = "start",
   },
   modes = {
     char = {
