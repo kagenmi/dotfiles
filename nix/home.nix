@@ -16,6 +16,9 @@
 
     # Trash CLI manager
     trash-cli
+
+    # Python GitLab API client library
+    python3Packages.python-gitlab
   ];
 
   # Program configurations (coexist with existing dotfiles)
