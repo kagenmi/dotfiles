@@ -36,6 +36,14 @@ M.get_python_path = function(workspace)
       return path_join(vim.env.VIRTUAL_ENV, "bin", "python")
    end
 
+   -- Check for uv project
+   if vim.fn.glob(path_join(workspace, "pyproject.toml")) ~= "" then
+      local uv_python = vim.fn.trim(vim.fn.system("cd " .. workspace .. " && uv python find 2>/dev/null"))
+      if vim.v.shell_error == 0 and uv_python ~= "" then
+         return uv_python
+      end
+   end
+
    -- Check for a poetry.lock file
    if vim.fn.glob(path_join(workspace, "poetry.lock")) ~= "" then
       return path_join(vim.fn.trim(vim.fn.system "poetry env info -p"), "bin", "python")
