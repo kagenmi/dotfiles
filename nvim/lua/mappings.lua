@@ -61,6 +61,8 @@ map("n", "<LEADER>lf",
   { desc = "Floating diagnostic." }
 )
 
+map("n", "<LEADER>lr", ":LspRestart<CR>", { desc = "LSP Restart" })
+
 -- WinShift
 -- --------
 
