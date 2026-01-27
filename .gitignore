@@ -25,3 +25,4 @@ zsh/custom
 
 # nvim
 nvim/lazy-lock.json
+CLAUDE.md
