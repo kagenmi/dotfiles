@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager version (do not change)
@@ -36,8 +36,27 @@
     enableZshIntegration = true;
   };
 
+  # starship - cross-shell prompt
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # sheldon - fast zsh plugin manager
+  programs.sheldon = {
+    enable = true;
+  };
+
   # Environment variables
   home.sessionVariables = {
     EDITOR = "vim";
+    # Zsh configuration paths
+    ZSH_CONFIG_HOME = "${config.xdg.configHome}/zsh";
+    # Sheldon configuration
+    SHELDON_CONFIG_DIR = "${config.xdg.configHome}/zsh/sheldon";
+    SHELDON_DATA_DIR = "${config.xdg.dataHome}/sheldon";
+    # Starship configuration location (assumes ZSH_CONFIG_HOME=$HOME/.config/zsh)
+    # Use mkForce to override Home Manager's default starship config path
+    STARSHIP_CONFIG = lib.mkForce "$ZSH_CONFIG_HOME/starship/config.toml";
   };
 }
