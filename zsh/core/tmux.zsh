@@ -10,4 +10,6 @@ if [[ $TERM = 'screen' ]]; then
   export TERM=screen-256color
 fi
 
-tmux-reload
+if [[ -n $TMUX ]]; then
+  # tmux-reload
+fi

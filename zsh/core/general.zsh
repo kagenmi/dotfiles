@@ -21,6 +21,9 @@ setopt appendhistory
 
 GREP_OPTIONS="--color=auto"
 
+# Set emacs keybindings
+bindkey -e
+
 # Utils
 # -----
 
