@@ -9,9 +9,10 @@ colors
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
 
-zinit lucid light-mode nocd depth=1 \
-  atload"source $ZSH_CONFIG_HOME/plugins/configs/powerlevel10k-atload.zsh" \
-  for '@romkatv/powerlevel10k'
+# Powerlevel10k removed - migrated to Starship
+# zinit lucid light-mode nocd depth=1 \
+#   atload"source $ZSH_CONFIG_HOME/plugins/configs/powerlevel10k-atload.zsh" \
+#   for '@romkatv/powerlevel10k'
 
 zinit wait'0' lucid light-mode for \
     'zsh-users/zsh-completions' \

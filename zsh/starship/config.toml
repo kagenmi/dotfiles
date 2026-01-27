@@ -1,0 +1,231 @@
+# Starship Prompt Configuration
+# Round style with Catppuccin Mocha colors
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "catppuccin_mocha"
+
+# Left prompt: os + directory + git
+format = """
+$os\
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+$character"""
+
+# Right prompt: status + duration + languages + cloud + environments
+right_format = """
+$status\
+$cmd_duration\
+$c\
+$golang\
+$java\
+$nodejs\
+$python\
+$rust\
+$terraform\
+$aws\
+$docker_context\
+$conda\
+$direnv\
+$nix_shell\
+"""
+
+add_newline = false
+
+# OS Icon - Lavender background
+[os]
+disabled = false
+style = "fg:base bg:lavender"
+format = "[](lavender)[$symbol ]($style)[](fg:lavender bg:blue)"
+
+[os.symbols]
+Alpine = "󰀵"
+Amazon = "󰸏"
+Android = "󰀲"
+Arch = "󰣇"
+CentOS = "󱄚"
+Debian = "󰣚"
+Fedora = "󰣛"
+Linux = "󰌽"
+Macos = "󰀵"
+Mint = "󰣭"
+NixOS = "󱄅"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+SUSE = "󰠳"
+Ubuntu = "󰕈"
+Unknown = "󰌽"
+Windows = "󰍲"
+
+# Directory - Blue background
+[directory]
+style = "fg:base bg:blue"
+format = "[ $path ]($style)[](fg:blue bg:mauve)"
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only = " 󰌾"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = "󰇚 "
+"Music" = "󰝚 "
+"Pictures" = "󰉏 "
+"Development" = "󰈮 "
+".config" = "󰒓 "
+
+# Git Branch - Mauve background
+[git_branch]
+symbol = " "
+style = "fg:base bg:mauve"
+format = '[ $symbol$branch ]($style)'
+
+# Git Status - Mauve background
+[git_status]
+style = "fg:base bg:mauve"
+format = '[$all_status$ahead_behind ]($style)[](mauve)'
+
+conflicted = " ${count}"
+stashed = "*${count}"
+modified = "!${count}"
+untracked = "?${count}"
+staged = "+${count}"
+renamed = "󰁕${count}"
+deleted = "${count}"
+
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+up_to_date = ""
+
+# Character (prompt symbol)
+[character]
+success_symbol = '[❯](peach)'
+error_symbol = '[❯](red)'
+vimcmd_symbol = '[❮](subtext1)'
+
+# Language versions - Blue background
+[c]
+symbol = "󰙱 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[golang]
+symbol = "󰟓 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[java]
+symbol = "󰬷 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[nodejs]
+symbol = "󰎙 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[python]
+symbol = "󰌠 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[terraform]
+symbol = "󱁢 "
+style = "fg:base bg:blue"
+format = '[ $symbol($version) ]($style)'
+
+# Cloud & Container - Peach background
+[aws]
+symbol = "󰸏 "
+style = "fg:base bg:peach"
+format = '[ $symbol($profile)(\\($region\\)) ]($style)'
+
+[docker_context]
+symbol = "󰡨 "
+style = "fg:base bg:peach"
+format = '[ $symbol$context ]($style)'
+
+# Environment managers - Teal background
+[conda]
+symbol = "󰔶 "
+style = "fg:base bg:teal"
+format = '[ $symbol$environment ]($style)'
+
+[direnv]
+disabled = false
+style = "fg:base bg:teal"
+format = '[ 󰀵 direnv ]($style)'
+
+[nix_shell]
+disabled = false
+symbol = "󱄅 "
+style = "fg:base bg:teal"
+format = '[ $symbol$name ]($style)'
+impure_msg = '[impure](bold red)'
+pure_msg = '[pure](bold green)'
+
+# Status - Red background
+[status]
+disabled = false
+style = "fg:base bg:red"
+format = '[ $symbol$status ]($style)'
+symbol = "✘ "
+success_symbol = ""
+not_executable_symbol = "󰒭 "
+not_found_symbol = "󰍉 "
+sigint_symbol = "󰂛 "
+signal_symbol = "⚡ "
+
+# Command Duration - Yellow background
+[cmd_duration]
+min_time = 2000
+style = "fg:base bg:yellow"
+format = '[ 󱦟 $duration ]($style)'
+show_milliseconds = false
+
+# Disable modules
+[username]
+disabled = true
+
+[hostname]
+disabled = true
+
+[time]
+disabled = true
+
+# Catppuccin Mocha Color Palette
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
