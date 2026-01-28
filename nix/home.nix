@@ -19,6 +19,9 @@
 
     # Python GitLab API client library
     python3Packages.python-gitlab
+
+    # Dev container CLI
+    devcontainer
   ];
 
   # Program configurations (coexist with existing dotfiles)
@@ -47,16 +50,22 @@
     enable = true;
   };
 
+  # neovim - hyperextensible Vim-based text editor
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   # Environment variables
   home.sessionVariables = {
-    EDITOR = "vim";
+    # EDITOR is set by programs.neovim.defaultEditor
     # Zsh configuration paths
     ZSH_CONFIG_HOME = "${config.xdg.configHome}/zsh";
     # Sheldon configuration
     SHELDON_CONFIG_DIR = "${config.xdg.configHome}/zsh/sheldon";
     SHELDON_DATA_DIR = "${config.xdg.dataHome}/sheldon";
-    # Starship configuration location (assumes ZSH_CONFIG_HOME=$HOME/.config/zsh)
+    # Starship configuration location
     # Use mkForce to override Home Manager's default starship config path
-    STARSHIP_CONFIG = lib.mkForce "$ZSH_CONFIG_HOME/starship/config.toml";
+    STARSHIP_CONFIG = lib.mkForce "${config.home.sessionVariables.ZSH_CONFIG_HOME}/starship/config.toml";
   };
 }
