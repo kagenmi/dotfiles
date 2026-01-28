@@ -12,6 +12,7 @@ venv
 # general
 *.local
 **/local/
+.local/
 
 # tmux
 tmux/error-logs.txt
@@ -25,5 +26,8 @@ zsh/custom
 
 # nvim
 nvim/lazy-lock.json
+
+# claude
+.claude/
 CLAUDE.md
 CLAUDE.local.md
