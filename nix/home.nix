@@ -22,6 +22,9 @@
 
     # Dev container CLI
     devcontainer
+
+    # Terminal multiplexer
+    tmux
   ];
 
   # Program configurations (coexist with existing dotfiles)
