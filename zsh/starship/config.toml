@@ -1,207 +1,167 @@
-# Starship Prompt Configuration
-# Round style with Catppuccin Mocha colors
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = "catppuccin_mocha"
-
-# Left prompt: os + directory + git
 format = """
+[](red)\
 $os\
+$username\
+[](bg:peach fg:red)\
 $directory\
 $git_branch\
 $git_status\
-$line_break\
-$character"""
-
-# Right prompt: status + duration + languages + cloud + environments
-right_format = """
-$status\
-$cmd_duration\
 $c\
-$golang\
-$java\
-$nodejs\
-$python\
 $rust\
-$terraform\
-$aws\
-$docker_context\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
 $conda\
-$direnv\
-$nix_shell\
+$time\
+[ ](fg:lavender)\
+$cmd_duration\
+$line_break\
+$character\
 """
 
-add_newline = false
+palette = 'catppuccin_mocha'
 
-# OS Icon - Lavender background
 [os]
 disabled = false
-style = "fg:base bg:lavender"
-format = "[](lavender)[$symbol ]($style)[](fg:lavender bg:blue)"
+style = "bg:red fg:crust"
 
 [os.symbols]
-Alpine = "󰀵"
-Amazon = "󰸏"
-Android = "󰀲"
-Arch = "󰣇"
-CentOS = "󱄚"
-Debian = "󰣚"
-Fedora = "󰣛"
-Linux = "󰌽"
-Macos = "󰀵"
+Windows = ""
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
 Mint = "󰣭"
-NixOS = "󱄅"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
-SUSE = "󰠳"
-Ubuntu = "󰕈"
-Unknown = "󰌽"
-Windows = "󰍲"
 
-# Directory - Blue background
+[username]
+show_always = true
+style_user = "bg:red fg:crust"
+style_root = "bg:red fg:crust"
+format = '[ $user]($style)'
+
 [directory]
-style = "fg:base bg:blue"
-format = "[ $path ]($style)[](fg:blue bg:mauve)"
-truncation_length = 4
+style = "bg:peach fg:crust"
+format = "[ $path ]($style)"
+truncation_length = 3
 truncation_symbol = "…/"
-truncate_to_repo = true
-read_only = " 󰌾"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
-"Downloads" = "󰇚 "
+"Downloads" = " "
 "Music" = "󰝚 "
-"Pictures" = "󰉏 "
-"Development" = "󰈮 "
-".config" = "󰒓 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
-# Git Branch - Mauve background
 [git_branch]
-symbol = " "
-style = "fg:base bg:mauve"
-format = '[ $symbol$branch ]($style)'
+symbol = ""
+style = "bg:yellow"
+format = '([](fg:prev_bg bg:yellow)[ $symbol $branch ](fg:crust bg:yellow))'
 
-# Git Status - Mauve background
 [git_status]
-style = "fg:base bg:mauve"
-format = '[$all_status$ahead_behind ]($style)[](mauve)'
-
-conflicted = " ${count}"
-stashed = "*${count}"
-modified = "!${count}"
-untracked = "?${count}"
-staged = "+${count}"
-renamed = "󰁕${count}"
-deleted = "${count}"
-
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-up_to_date = ""
-
-# Character (prompt symbol)
-[character]
-success_symbol = '[❯](peach)'
-error_symbol = '[❯](red)'
-vimcmd_symbol = '[❮](subtext1)'
-
-# Language versions - Blue background
-[c]
-symbol = "󰙱 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
-
-[golang]
-symbol = "󰟓 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
-
-[java]
-symbol = "󰬷 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
+style = "bg:yellow"
+format = '([($all_status$ahead_behind )](fg:crust bg:yellow))'
 
 [nodejs]
-symbol = "󰎙 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
 
-[python]
-symbol = "󰌠 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
+[c]
+symbol = " "
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
 
 [rust]
-symbol = "󱘗 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
 
-[terraform]
-symbol = "󱁢 "
-style = "fg:base bg:blue"
-format = '[ $symbol($version) ]($style)'
+[golang]
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
 
-# Cloud & Container - Peach background
-[aws]
-symbol = "󰸏 "
-style = "fg:base bg:peach"
-format = '[ $symbol($profile)(\\($region\\)) ]($style)'
+[php]
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
+
+[java]
+symbol = " "
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
+
+[kotlin]
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
+
+[haskell]
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version) ](fg:crust bg:green))'
+
+[python]
+symbol = ""
+style = "bg:green"
+format = '([](fg:prev_bg bg:green)[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green))'
 
 [docker_context]
-symbol = "󰡨 "
-style = "fg:base bg:peach"
-format = '[ $symbol$context ]($style)'
+symbol = ""
+style = "bg:sapphire"
+format = '([](fg:prev_bg bg:sapphire)[ $symbol( $context) ](fg:crust bg:sapphire))'
 
-# Environment managers - Teal background
 [conda]
-symbol = "󰔶 "
-style = "fg:base bg:teal"
-format = '[ $symbol$environment ]($style)'
-
-[direnv]
-disabled = false
-style = "fg:base bg:teal"
-format = '[ 󰀵 direnv ]($style)'
-
-[nix_shell]
-disabled = false
-symbol = "󱄅 "
-style = "fg:base bg:teal"
-format = '[ $symbol$name ]($style)'
-impure_msg = '[impure](bold red)'
-pure_msg = '[pure](bold green)'
-
-# Status - Red background
-[status]
-disabled = false
-style = "fg:base bg:red"
-format = '[ $symbol$status ]($style)'
-symbol = "✘ "
-success_symbol = ""
-not_executable_symbol = "󰒭 "
-not_found_symbol = "󰍉 "
-sigint_symbol = "󰂛 "
-signal_symbol = "⚡ "
-
-# Command Duration - Yellow background
-[cmd_duration]
-min_time = 2000
-style = "fg:base bg:yellow"
-format = '[ 󱦟 $duration ]($style)'
-show_milliseconds = false
-
-# Disable modules
-[username]
-disabled = true
-
-[hostname]
-disabled = true
+symbol = "  "
+style = "fg:crust bg:sapphire"
+format = '([](fg:prev_bg bg:sapphire)[$symbol$environment ]($style))'
+ignore_base = false
 
 [time]
-disabled = true
+disabled = false
+time_format = "%R"
+style = "bg:lavender"
+format = '([](fg:prev_bg bg:lavender)[  $time ](fg:crust bg:lavender))'
 
-# Catppuccin Mocha Color Palette
+[line_break]
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
+vimcmd_replace_symbol = '[❮](bold fg:lavender)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[cmd_duration]
+show_milliseconds = true
+format = " in $duration "
+style = "bg:lavender"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"
@@ -229,3 +189,87 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
+
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
+
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
