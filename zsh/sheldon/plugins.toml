@@ -1,14 +1,17 @@
 shell = "zsh"
 
-[plugins.zsh-defer]
-github = "romkatv/zsh-defer"
+# [plugins.powerlevel10k]
+# github = "romkatv/powerlevel10k"
+
+# [plugins.zsh-defer]
+# github = "romkatv/zsh-defer"
 
 [plugins.completions]
 github = "zsh-users/zsh-completions"
 
 [plugins.autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
-apply = ["defer"]
+# apply = ["defer"]
 
 [plugins.omz-lib-git]
 github = "ohmyzsh/ohmyzsh"
@@ -18,16 +21,16 @@ use = ["git.zsh"]
 [plugins.omz-git]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins/git"
-apply = ["defer"]
+# apply = ["defer"]
 
 [plugins.colored-man-pages]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins/colored-man-pages"
-apply = ["defer"]
+# apply = ["defer"]
 
 [plugins.aws-completer]
 remote = "https://raw.githubusercontent.com/aws/aws-cli/v2/bin/aws_zsh_completer.sh"
-apply = ["defer"]
+# apply = ["defer"]
 
 [templates]
 defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
