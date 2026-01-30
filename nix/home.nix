@@ -8,6 +8,9 @@
 
   # Package installation
   home.packages = with pkgs; [
+    # AWS CLI v2
+    awscli2
+
     # Dev container CLI
     devcontainer
 
@@ -26,6 +29,9 @@
     # Universal version manager (supports Go, Node.js, Python, Rust, Terraform, etc.)
     mise
 
+    # Cryptography and SSL/TLS toolkit
+    openssl
+
     # Python GitLab API client library
     python3Packages.python-gitlab
 
@@ -43,6 +49,9 @@
 
     # Python package installer
     uv
+
+    # X11 clipboard utility for WSL clipboard integration
+    xclip
   ];
 
   # Program configurations (coexist with existing dotfiles)
@@ -88,5 +97,7 @@
     # Starship configuration location
     # Use mkForce to override Home Manager's default starship config path
     STARSHIP_CONFIG = lib.mkForce "${config.home.sessionVariables.ZSH_CONFIG_HOME}/starship/config.toml";
+    # Library search path for dynamic linker
+    LD_LIBRARY_PATH = "${pkgs.openssl.out}/lib";
   };
 }

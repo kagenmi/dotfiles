@@ -1,6 +1,20 @@
 require "nvchad.options"
 
--- add yours here!
-
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
+-- WSL environment: Force xclip for clipboard (avoid wl-copy)
+if vim.fn.has('wsl') == 1 then
+  vim.g.clipboard = {
+    name = 'xclip',
+    copy = {
+      ['+'] = 'xclip -selection clipboard',
+      ['*'] = 'xclip -selection clipboard',
+    },
+    paste = {
+      ['+'] = 'xclip -selection clipboard -o',
+      ['*'] = 'xclip -selection clipboard -o',
+    },
+    cache_enabled = true,
+  }
+end
