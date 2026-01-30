@@ -4,24 +4,23 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
+local function setup_server(server_name, config)
+  vim.lsp.config[server_name] = config
+  vim.lsp.enable(server_name)
+end
+
 M.setup = function()
   local mason_lspconfig = require "mason-lspconfig"
-  local lspconfig = require "lspconfig"
 
   mason_lspconfig.setup({
     ensure_installed = {
-      -- lua stuff
       "lua_ls",
-
-      -- web dev stuff
       "cssls",
       "html",
       "ts_ls",
       "tailwindcss",
       "gopls",
       "pyright",
-
-      -- others
       "powershell_es",
       "terraformls",
       "tflint",
@@ -30,15 +29,18 @@ M.setup = function()
     automatic_installation = true,
     handlers = {
       function (server_name)
-        lspconfig[server_name].setup {
+        setup_server(server_name, {
           on_attach = on_attach,
           on_init = on_init,
           capabilities = capabilities,
-        }
+        })
       end,
 
       lua_ls = function()
-        lspconfig.lua_ls.setup {
+        setup_server("lua_ls", {
+          on_attach = on_attach,
+          on_init = on_init,
+          capabilities = capabilities,
           settings = {
             Lua = {
               runtime = {
@@ -56,30 +58,30 @@ M.setup = function()
               },
             },
           },
-        }
+        })
       end,
 
       terraformls = function()
-        lspconfig.terraformls.setup {
+        setup_server("terraformls", {
           on_attach = function(client, bufnr)
             on_attach(client, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, "commentstring", "// %s")
+            vim.bo[bufnr].commentstring = "// %s"
           end,
           on_init = on_init,
           capabilities = capabilities,
           filetypes = { "terraform", "tf", "hcl", "terraform-vars" },
-        }
+        })
       end,
 
       bicep = function()
-        lspconfig.bicep.setup {
+        setup_server("bicep", {
           on_attach = function(client, bufnr)
             on_attach(client, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, "commentstring", "// %s")
+            vim.bo[bufnr].commentstring = "// %s"
           end,
           on_init = on_init,
           capabilities = capabilities,
-        }
+        })
       end,
     }
   })

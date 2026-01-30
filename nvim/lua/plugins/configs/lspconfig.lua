@@ -2,46 +2,67 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-local lsputil = require "lspconfig/util"
-
 local utils = require "utils"
 
--- if you just want default config for the servers then put them in a table
-local server_opts = {
-  html = {},
+-- Server configurations using new vim.lsp.config API (Neovim 0.11+)
+local server_configs = {
+  html = {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  },
   cssls = {
     on_attach = on_attach,
+    on_init = on_init,
     capabilities = capabilities,
     settings = {
       css = {
         validate = true,
         lint = {
-          unknownAtRules = "ignore", -- Suppress warning: cssls cannot recognize tailwindcss
+          unknownAtRules = "ignore",
         },
       },
       less = {
         validate = true,
         lint = {
-          unknownAtRules = "ignore", -- Suppress warning: cssls cannot recognize tailwindcss
+          unknownAtRules = "ignore",
         },
       },
       scss = {
         validate = true,
         lint = {
-          unknownAtRules = "ignore", -- Suppress warning: cssls cannot recognize tailwindcss
+          unknownAtRules = "ignore",
         },
       },
     },
   },
-  clangd = {},
-  gopls = {},
-  tailwindcss = {},
-  powershell_es = {},
+  clangd = {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  },
+  gopls = {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  },
+  tailwindcss = {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  },
+  powershell_es = {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+  },
   pyright = {
     on_attach = on_attach,
+    on_init = function(client)
+      on_init(client)
+      client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
+    end,
     capabilities = capabilities,
-    root_dir = lsputil.root_pattern { "pyproject.toml", ".git" },
     settings = {
       python = {
         analysis = {
@@ -51,15 +72,12 @@ local server_opts = {
             reportOptionalSubscript = 'none',
             reportGeneralTypeIssues = 'none',
           },
-          authSearchPath = true,
+          autoSearchPaths = true,
           diagnosticMode = "workspace",
           useLibraryCodeForTypes = true,
         },
       },
     },
-    on_init = function(client)
-      client.config.settings.python.pythonPath = utils.get_python_path(client.config.root_dir)
-    end,
   },
   ts_ls = {
     on_attach = on_attach,
@@ -82,20 +100,13 @@ local server_opts = {
 }
 
 local function setup()
-  for lsp, opt in pairs(server_opts) do
-    if next(opt) == nil then
-      lspconfig[lsp].setup {
-        on_attach = on_attach,
-        on_init = on_init,
-        capabilities = capabilities,
-      }
-    else
-      lspconfig[lsp].setup(opt)
-    end
+  for server_name, config in pairs(server_configs) do
+    vim.lsp.config[server_name] = config
+    vim.lsp.enable(server_name)
   end
 end
 
-local servers = vim.tbl_keys(server_opts)
+local servers = vim.tbl_keys(server_configs)
 
 return {
   servers = servers,
