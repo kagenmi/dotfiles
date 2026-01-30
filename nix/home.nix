@@ -8,23 +8,41 @@
 
   # Package installation
   home.packages = with pkgs; [
+    # Dev container CLI
+    devcontainer
+
+    # Simple, fast alternative to find
+    fd
+
+    # Command-line fuzzy finder
+    fzf
+
+    # GitHub CLI tool
+    gh
+
+    # Command-line JSON processor
+    jq
+
     # Universal version manager (supports Go, Node.js, Python, Rust, Terraform, etc.)
     mise
-
-    # Python package installer
-    uv
-
-    # Trash CLI manager
-    trash-cli
 
     # Python GitLab API client library
     python3Packages.python-gitlab
 
-    # Dev container CLI
-    devcontainer
+    # Fast search tool (grep alternative)
+    ripgrep
 
     # Terminal multiplexer
     tmux
+
+    # Trash CLI manager
+    trash-cli
+
+    # Directory tree visualization
+    tree
+
+    # Python package installer
+    uv
   ];
 
   # Program configurations (coexist with existing dotfiles)
