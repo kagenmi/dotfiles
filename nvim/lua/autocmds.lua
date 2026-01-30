@@ -22,6 +22,13 @@ autocmd('InsertEnter', {
   end,
 })
 
+-- Register bicep filetype
+vim.filetype.add({
+  extension = {
+    bicep = "bicep",
+  },
+})
+
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.gitlab-ci*.{yml,yaml}",
   callback = function()
