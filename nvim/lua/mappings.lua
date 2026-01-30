@@ -62,9 +62,3 @@ map("n", "<LEADER>lf",
 )
 
 map("n", "<LEADER>lr", ":LspRestart<CR>", { desc = "LSP Restart" })
-
--- WinShift
--- --------
-
-map("n", "<C-w>m", ":WinShift<CR>", { desc = "Enter Win-Move mode" })
-map("n", "<C-w>x", ":WinShift swap<CR>", { desc = "Swap windows" })

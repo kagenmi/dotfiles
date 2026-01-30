@@ -22,14 +22,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     opts = require("plugins.configs.cmp"),
-    dependencies = {
-      {
-        "jcdickinson/codeium.nvim",
-        config = function()
-          require("codeium").setup {}
-        end,
-      }
-    }
   },
 
   {
@@ -56,8 +48,8 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require("plugins.configs.treesitter").opts,
-    config = require("plugins.configs.treesitter").setup(),
+    branch = "main",
+    opts = require("plugins.configs.treesitter"),
   },
 
   {
@@ -86,7 +78,11 @@ return {
 
   {
     "sindrets/winshift.nvim",
-    lazy = false,
+    cmd = "WinShift",
+    keys = {
+      { "<C-w>m", "<cmd>WinShift<CR>", desc = "Enter Win-Move mode" },
+      { "<C-w>x", "<cmd>WinShift swap<CR>", desc = "Swap windows" },
+    },
   },
 
   {
@@ -157,11 +153,5 @@ return {
     config = function()
       require("plugins.configs.hlchunk").setup()
     end,
-  },
-
-  {
-     'tzachar/cmp-tabnine',
-     build = './install.sh',
-     dependencies = 'hrsh7th/nvim-cmp',
   },
 }
