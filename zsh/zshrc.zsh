@@ -59,6 +59,12 @@ if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
+# mise -- Development Environment Manager
+# ----
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
 # Custom Configuration
 # --------------------
 source "$ZSH_CONFIG_HOME/utils.zsh"
