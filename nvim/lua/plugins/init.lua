@@ -48,8 +48,25 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "main",
-    opts = require("plugins.configs.treesitter"),
+    build = ":TSUpdate | TSInstallAll",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "vimdoc",
+        "lua",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "c",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "terraform",
+        "hcl",
+      },
+    },
   },
 
   {

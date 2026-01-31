@@ -37,6 +37,13 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "autocmds"
 
+-- Enable treesitter highlighting for all filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
+
 vim.schedule(function()
   require "mappings"
 end)
