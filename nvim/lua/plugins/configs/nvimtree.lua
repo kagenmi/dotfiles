@@ -18,7 +18,8 @@ return {
     },
   },
   update_focused_file = {
-    enable = false,
+    enable = true,
+    update_root = false,
   },
   view = {
     preserve_window_proportions = false,
