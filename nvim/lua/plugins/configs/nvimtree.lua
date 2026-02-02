@@ -1,3 +1,33 @@
+local function change_root_to_project_root()
+  local api = require('nvim-tree.api')
+
+  -- Get current working directory from nvim-tree's perspective
+  local cwd = vim.fn.getcwd()
+
+  -- Find .git directory by traversing up the directory tree
+  local function find_git_root(path)
+    local git_dir = path .. '/.git'
+    if vim.fn.isdirectory(git_dir) == 1 or vim.fn.filereadable(git_dir) == 1 then
+      return path
+    end
+
+    local parent = vim.fn.fnamemodify(path, ':h')
+    if parent == path then
+      return nil -- Reached root directory
+    end
+
+    return find_git_root(parent)
+  end
+
+  local git_root = find_git_root(cwd)
+
+  if git_root then
+    api.tree.change_root(git_root)
+  else
+    vim.notify("Git repository not found", vim.log.levels.WARN)
+  end
+end
+
 return {
   sync_root_with_cwd = true,
   git = {
@@ -45,6 +75,7 @@ return {
     -- Explorer dir/file
     vim.keymap.set('n', 'O', api.tree.change_root_to_node, opts('cd'))
     vim.keymap.set('n', 'U', api.tree.change_root_to_parent, opts('Up'))
+    vim.keymap.set('n', 'gp', change_root_to_project_root, opts('Project Root'))
 
     -- Modify file
     vim.keymap.set('n', 'y', api.fs.copy.node, opts('Copy'))
