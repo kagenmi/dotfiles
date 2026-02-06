@@ -105,13 +105,15 @@ git-open() {
 # -------
 
 alias ccat='highlight -O ansi --force'
-alias vim='nvim'
 alias editalacritty="vim ~/.config/alacritty/alacritty.yml"
 alias edittmux="vim $HOME/.config/tmux/tmux.conf"
 alias editrc="vim $ZSH_CONF_HOME/zshrc.zsh"
+alias cdr='cd "$(git rev-parse --show-toplevel)"'
+
+# nvim
+alias vim='nvim'
 alias nvim-clear="command rm -rf $HOME/.local/share/nvim/swap && command rm -rf $HOME/.local/state/nvim/swap"
 alias nvim-reset="command rm -rf $HOME/.local/share/nvim && command rm -rf $HOME/.local/state/nvim"
-alias tf="terraform"
 
 if type trash-put &> /dev/null; then
   alias rm=trash-put
